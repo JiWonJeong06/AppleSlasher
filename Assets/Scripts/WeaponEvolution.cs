@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponEvolution : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class WeaponEvolution : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
         {
             GainExp(10f);
         }

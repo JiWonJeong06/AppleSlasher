@@ -1,6 +1,7 @@
 using System.Net;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PinSpawner : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class PinSpawner : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
 		{
 			UpdatePinByRarity();
 			inst_pin = Instantiate(pinPrefab, transform.position, Quaternion.identity);
