@@ -624,7 +624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -985, y: -640}
+  m_AnchoredPosition: {x: -985, y: -764}
   m_SizeDelta: {x: 1920, y: 1119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413408226
@@ -2642,6 +2642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Apple_Spawner: {fileID: 1732248319}
   applehptext: {fileID: 1637734374}
+  gameManager: {fileID: 1462772712}
 --- !u!1 &1732248319
 GameObject:
   m_ObjectHideFlags: 0

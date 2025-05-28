@@ -20,14 +20,17 @@ public class GameManager : MonoBehaviour
     public bool GameStart;
     void Update()
     {
-
-        slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp;
+        if (stagelevel % 5 == 0)
+        {
+            slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Boss_Hp;
+        } 
+        else
+            slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp;
 
     }
     public void GameOver()
     {
-        stagelevel = 1;
-        Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp = 80;
+    
     }
     void GameOverUI()
     {

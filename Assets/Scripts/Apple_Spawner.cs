@@ -24,10 +24,11 @@ public class Apple_Spawner : MonoBehaviour
 
         if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
         {
-            apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Boss_Hp;
+           apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Boss_Hp;
+           
         }
         else
-            apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Max_Hp;
+           apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Max_Hp;
         
 
     }
@@ -48,12 +49,12 @@ public class Apple_Spawner : MonoBehaviour
                 Destroy(apple_inst);
                 ade.PlayDestructionEffect();
 
-                gameManager.GetComponent<GameManager>().stagelevel += 1;
                 if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
                     Boss_Hp += 10f;
                 else
                     Max_Hp += 3.5f;
 
+                gameManager.GetComponent<GameManager>().stagelevel += 1;
                 StartCoroutine(Next_Round());
             }
         }
