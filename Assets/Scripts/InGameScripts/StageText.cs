@@ -4,11 +4,17 @@ using UnityEngine.UI;
 public class StageText : MonoBehaviour
 
 
+
 {
+    public bool beststage;
     public Text stagetext;
     public GameObject gameManager;
-    void Start() {
 
+    public void Start() {
+        if (beststage)
+        {
+            stagetext.text = "Best Stage ";
+        }
     }
     void Update()
     {
