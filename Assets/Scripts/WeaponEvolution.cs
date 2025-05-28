@@ -75,8 +75,8 @@ public class WeaponEvolution : MonoBehaviour
         else
         {
             currentLevel = 10;
-            currentExp = 0;
-            expPerLevel = 0f;
+            currentExp = 99;
+            expPerLevel = 100;
             //Debug.Log("최종 무기입니다. 더 이상 진화할 수 없습니다.");
         }
     }

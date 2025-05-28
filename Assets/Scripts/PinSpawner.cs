@@ -21,7 +21,7 @@ public class PinSpawner : MonoBehaviour
 
 	private void Update()
 	{
-		if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+		if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame && Apple_Spawner.GetComponent<Apple_Spawner>().apple_inst != null)
 		{
 			UpdatePinByRarity();
 			inst_pin = Instantiate(pinPrefab, transform.position, Quaternion.identity);

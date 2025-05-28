@@ -8,6 +8,8 @@ public class AppleHptext : MonoBehaviour
 
     private Apple_Spawner appleSpawnerScript; // Apple_Spawner 스크립트 캐싱
 
+    public GameManager gameManager;
+
     void Start()
     {
         // Apple_Spawner 스크립트를 미리 가져와 캐싱
@@ -28,12 +30,15 @@ public class AppleHptext : MonoBehaviour
         {
             float current = appleSpawnerScript.Current_Hp;
             float max = appleSpawnerScript.Max_Hp;
+            float boss = appleSpawnerScript.Boss_Hp;
             if (current <= 0f)
             {
                 current = 0f;
             }
+            if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
+            applehptext.text =  $"{current:F1}/{boss:F1}";
             // 형식: 75 / 100 또는 퍼센트: 75%
-            applehptext.text = $"{current:F1}/{max:F1}";
+             else   applehptext.text = $"{current:F1}/{max:F1}";
           
         }
     }

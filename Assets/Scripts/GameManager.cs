@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject Apple_Spawner;
     public GameObject Pin_Spawner;
+
+    public GameObject Main;
+    public GameObject Start;
+    public GameObject InGame;
+    public GameObject Gameover;
+
+    public bool GameStart;
     void Update()
     {
 
@@ -21,6 +28,10 @@ public class GameManager : MonoBehaviour
     {
         stagelevel = 1;
         Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp = 80;
+    }
+    void GameOverUI()
+    {
+        
     }
 
 

@@ -7,18 +7,29 @@ public class Apple_Spawner : MonoBehaviour
     public GameObject apple_inst;
     public float Max_Hp;
     public float Current_Hp;
+    public float Boss_Hp = 100f;
     public GameObject gameManager;
+
+
 
     public AppleDestructionEffect ade;
     void Start()
     {
         Apple_Spawn();
-       
+
     }
     public void Apple_Spawn()
     {
         apple_inst = Instantiate(apple_prefab, new Vector3(0, 0.5f, 0), Quaternion.identity);
-        apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Max_Hp;
+
+        if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
+        {
+            apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Boss_Hp;
+        }
+        else
+            apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Max_Hp;
+        
+
     }
 
     public void Damage_Apple(float Damage)
@@ -38,7 +49,10 @@ public class Apple_Spawner : MonoBehaviour
                 ade.PlayDestructionEffect();
 
                 gameManager.GetComponent<GameManager>().stagelevel += 1;
-                Max_Hp += 3.5f;
+                if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
+                    Boss_Hp += 10f;
+                else
+                    Max_Hp += 3.5f;
 
                 StartCoroutine(Next_Round());
             }
@@ -49,11 +63,13 @@ public class Apple_Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
     }
-        
+
     IEnumerator Next_Round()
     {
         yield return Waittime(0.5f);
         Apple_Spawn();
     }
+
+
 
 }

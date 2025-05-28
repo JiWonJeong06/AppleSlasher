@@ -17,7 +17,7 @@ public class AppleDestructionEffect : MonoBehaviour
             if (rb != null)
             {
                 // 임의 방향과 힘을 가함
-                Vector3 force = new Vector3(Random.Range(-2f, 2f), 1f) * 500f;
+                Vector3 force = new Vector3(Random.Range(-2f, 2f), 1f) * 300f;
                 rb.AddForce(force);
 
                 // 임의 토크(회전력) 적용

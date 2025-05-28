@@ -12,8 +12,10 @@ public class StageText : MonoBehaviour
     }
     void Update()
     {
-       
-            
+
+        if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
+            stagetext.text = "Stage Boss";
+        else
             stagetext.text = "Stage " + gameManager.GetComponent<GameManager>().stagelevel;
         
     }
