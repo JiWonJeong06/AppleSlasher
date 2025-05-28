@@ -7,6 +7,8 @@ public class Apple_Spawner : MonoBehaviour
     public float Max_Hp;
     public float Current_Hp;
     public GameObject gameManager;
+
+    public AppleDestructionEffect ade;
     void Start()
     {
         Apple_Spawn();
@@ -29,6 +31,7 @@ public class Apple_Spawner : MonoBehaviour
         if (apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar <= 0)
         {
             Destroy(apple_inst);
+            ade.PlayDestructionEffect();
             gameManager.GetComponent<GameManager>().stagelevel += 1;
             Max_Hp += 3.5f;
             Next_Round();

@@ -7,6 +7,8 @@ public class Target : MonoBehaviour
 	private float rotateSpeed = 100;
 	private Vector3 rotateAngle = Vector3.forward;
 
+
+
 	private SpriteRenderer spriteRenderer;
 
 	private IEnumerator Start()
@@ -58,7 +60,7 @@ public class Target : MonoBehaviour
 
 		while (elapsed < duration)
 		{
-			float offsetY = Mathf.Sin(Time.time * 30f) * magnitude;
+			float offsetY = Mathf.Sin(Time.time * 50f) * magnitude;
 			appleTransform.localPosition = originalPos + new Vector3(0, offsetY, 0);
 			elapsed += Time.deltaTime;
 			yield return null;
