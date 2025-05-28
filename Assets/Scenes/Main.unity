@@ -2945,7 +2945,7 @@ MonoBehaviour:
   apple_inst: {fileID: 0}
   Max_Hp: 50
   Current_Hp: 0
-  Boss_Hp: 100
+  Boss_Hp: 105
   gameManager: {fileID: 1462772709}
   ade: {fileID: 1880596786}
 --- !u!1 &1752292579
