@@ -51,7 +51,7 @@ public class WeaponEvolution : MonoBehaviour
             currentLevel++;
             expPerLevel += 10f;
 
-            Debug.Log($"레벨업! 현재 레벨: {currentLevel}");
+           // Debug.Log($"레벨업! 현재 레벨: {currentLevel}");
 
             if (currentLevel > 10)
             {
@@ -70,14 +70,14 @@ public class WeaponEvolution : MonoBehaviour
             currentLevel = 1;
             currentExp = 0;
             
-            Debug.Log($"무기 진화! 새로운 무기: {weaponList[currentWeaponIndex].Name}");
+            //Debug.Log($"무기 진화! 새로운 무기: {weaponList[currentWeaponIndex].Name}");
         }
         else
         {
             currentLevel = 10;
             currentExp = 0;
             expPerLevel = 0f;
-            Debug.Log("최종 무기입니다. 더 이상 진화할 수 없습니다.");
+            //Debug.Log("최종 무기입니다. 더 이상 진화할 수 없습니다.");
         }
     }
 
@@ -85,7 +85,7 @@ public class WeaponEvolution : MonoBehaviour
     {
         var weapon = weaponList[currentWeaponIndex];
         float attackPower = weapon.Levels[Mathf.Clamp(currentLevel - 1, 0, weapon.Levels.Count - 1)];
-        Debug.Log($"무기: {weapon.Name}, 등급: {weapon.Rare}, 레벨: {currentLevel}, 공격력: {attackPower}, 경험치: {currentExp}/{expPerLevel}");
+        //Debug.Log($"무기: {weapon.Name}, 등급: {weapon.Rare}, 레벨: {currentLevel}, 공격력: {attackPower}, 경험치: {currentExp}/{expPerLevel}");
     }
     public float Damage()
     {
@@ -117,7 +117,7 @@ public class WeaponEvolution : MonoBehaviour
         TextAsset csvData = Resources.Load<TextAsset>("Data_Table_Knife");
         if (csvData == null)
         {
-            Debug.LogError("CSV 파일을 찾을 수 없습니다.");
+            //Debug.LogError("CSV 파일을 찾을 수 없습니다.");
             return;
         }
 
@@ -155,6 +155,6 @@ public class WeaponEvolution : MonoBehaviour
             weaponList.Add(new WeaponData(id, name, rare, levels));
         }
 
-        Debug.Log("무기 데이터 로딩 완료");
+        //Debug.Log("무기 데이터 로딩 완료");
     }
 }

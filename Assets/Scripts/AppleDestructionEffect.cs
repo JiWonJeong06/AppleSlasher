@@ -22,11 +22,6 @@ public class AppleDestructionEffect : MonoBehaviour
         }
 
         // 칼 떨어뜨리기
-        if (knife != null)
-        {
-            knife.transform.SetParent(null);
-            var rb = knife.AddComponent<Rigidbody2D>();
-            rb.gravityScale = 1f;
-        }
+    
     }
 }

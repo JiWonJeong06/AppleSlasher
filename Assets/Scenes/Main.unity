@@ -556,6 +556,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stagetext: {fileID: 320793171}
   gameManager: {fileID: 1462772709}
+--- !u!1 &351818988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351818989}
+  m_Layer: 0
+  m_Name: Apple_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351818989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351818988}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1289688952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413408224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2046,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 351818989}
   - {fileID: 1732248320}
   - {fileID: 65545401}
   - {fileID: 992695079}
@@ -2592,8 +2624,8 @@ MonoBehaviour:
   - {fileID: 6447407565207129330, guid: dee2f73ca3a95b042bf70f35f381d1be, type: 3}
   - {fileID: 5670694750922897640, guid: b03fc9daab28d184c99bec58eda4d3f5, type: 3}
   - {fileID: 8165380402197598312, guid: 7d21294d1eb5a1b4bb69b5e57cfb6547, type: 3}
-  knife: {fileID: 8895993989985317311, guid: 883abd75ff367cc49813f2dad0ea8be8, type: 3}
-  spawnPoint: {fileID: 1732248320}
+  knife: {fileID: 0}
+  spawnPoint: {fileID: 351818989}
 --- !u!4 &1880596787
 Transform:
   m_ObjectHideFlags: 0
@@ -2991,5 +3023,5 @@ SceneRoots:
   - {fileID: 485531987}
   - {fileID: 1462772711}
   - {fileID: 128697937}
-  - {fileID: 276376752}
   - {fileID: 1880596787}
+  - {fileID: 276376752}

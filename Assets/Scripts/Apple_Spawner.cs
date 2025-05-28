@@ -32,6 +32,7 @@ public class Apple_Spawner : MonoBehaviour
         {
             Destroy(apple_inst);
             ade.PlayDestructionEffect();
+            
             gameManager.GetComponent<GameManager>().stagelevel += 1;
             Max_Hp += 3.5f;
             Next_Round();
@@ -39,7 +40,7 @@ public class Apple_Spawner : MonoBehaviour
     }
     void Next_Round()
     {
-        print("다음 라운드");
+        //print("다음 라운드");
         Apple_Spawn();
     }
 }
