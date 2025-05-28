@@ -54,6 +54,7 @@ public class Pin : MonoBehaviour
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
         
+            collision.GetComponent<Target>().ShakeApple();
             Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(weaponEvolution.GetComponent<WeaponEvolution>().Damage());
             
         }

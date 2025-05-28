@@ -42,7 +42,7 @@ public class WeaponEvolution : MonoBehaviour
     void Update()
     {
 
-        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame || Input.GetMouseButtonDown(0) )
         {
             GainExp(10f);
         }
