@@ -51,6 +51,7 @@ public class Pin : MonoBehaviour
 
             transform.SetParent(collision.transform);
             collision.GetComponent<Target>().Hit();
+            weaponEvolution.GetComponent<WeaponEvolution>().GainExp(10f);
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
         

@@ -58,7 +58,7 @@ public class Target : MonoBehaviour
 
 		while (elapsed < duration)
 		{
-			float offsetY = Mathf.Sin(Time.time * 50f) * magnitude;
+			float offsetY = Mathf.Sin(Time.time * 30f) * magnitude;
 			appleTransform.localPosition = originalPos + new Vector3(0, offsetY, 0);
 			elapsed += Time.deltaTime;
 			yield return null;
