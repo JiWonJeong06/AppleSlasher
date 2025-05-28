@@ -28,10 +28,13 @@ public class AppleHptext : MonoBehaviour
         {
             float current = appleSpawnerScript.Current_Hp;
             float max = appleSpawnerScript.Max_Hp;
-
+            if (current <= 0f)
+            {
+                current = 0f;
+            }
             // 형식: 75 / 100 또는 퍼센트: 75%
             applehptext.text = $"{current:F1}/{max:F1}";
-            // 또는 applehptext.text = $"{(current / max * 100f):F1}%";
+          
         }
     }
 }

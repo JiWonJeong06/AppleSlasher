@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Apple_Spawner : MonoBehaviour
 {
@@ -27,20 +28,32 @@ public class Apple_Spawner : MonoBehaviour
 
     void Update()
     {
-        Current_Hp = apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar;
-        if (apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar <= 0)
+        if (apple_inst != null)
         {
-            Destroy(apple_inst);
-            ade.PlayDestructionEffect();
-            
-            gameManager.GetComponent<GameManager>().stagelevel += 1;
-            Max_Hp += 3.5f;
-            Next_Round();
+            Current_Hp = apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar;
+
+            if (apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar <= 0)
+            {
+                Destroy(apple_inst);
+                ade.PlayDestructionEffect();
+
+                gameManager.GetComponent<GameManager>().stagelevel += 1;
+                Max_Hp += 3.5f;
+
+                StartCoroutine(Next_Round());
+            }
         }
     }
-    void Next_Round()
+
+    IEnumerator Waittime(float time)
     {
-        //print("다음 라운드");
+        yield return new WaitForSeconds(time);
+    }
+        
+    IEnumerator Next_Round()
+    {
+        yield return Waittime(0.5f);
         Apple_Spawn();
     }
+
 }
