@@ -7,7 +7,7 @@ public class Apple_Spawner : MonoBehaviour
     public GameObject apple_inst;
     public float Max_Hp;
     public float Current_Hp;
-    public float Boss_Hp = 100f;
+    public float Boss_Hp = 105f;
     public GameObject gameManager;
 
 
@@ -52,7 +52,7 @@ public class Apple_Spawner : MonoBehaviour
                 if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
                     Boss_Hp += 10f;
                 else
-                    Max_Hp += 3.5f;
+                    Max_Hp += 5f;
 
                 gameManager.GetComponent<GameManager>().stagelevel += 1;
                 StartCoroutine(Next_Round());
