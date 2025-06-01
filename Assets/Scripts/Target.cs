@@ -30,6 +30,7 @@ public class Target : MonoBehaviour
 
 	private void Update()
 	{
+		
 		transform.Rotate(rotateAngle * rotateSpeed * Time.deltaTime);
 	}
 

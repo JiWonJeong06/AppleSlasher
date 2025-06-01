@@ -8,8 +8,6 @@ public class StageText : MonoBehaviour
     public GameObject gameManager;
     void Update()
     {
-        if (!gameManager.GetComponent<GameManager>().GameStart)
-            return;
         
         if (int.Parse(best_stagetext.text.Split(' ')[2]) <= gameManager.GetComponent<GameManager>().stagelevel)
         {

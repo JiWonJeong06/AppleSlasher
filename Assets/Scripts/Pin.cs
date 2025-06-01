@@ -29,22 +29,19 @@ public class Pin : MonoBehaviour
     private void Update()
 
     {
-if (!gameManager.GetComponent<GameManager>().GameStart)
-            return;
-        
         movement2D = GetComponent<Movement2D>();
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!gameManager.GetComponent<GameManager>().GameStart)
-            return;
-
 
         if (collision.CompareTag("Pin"))
         {
+
+            
             gameManager.GetComponent<GameManager>().GameOver();
+
         }
 
 
@@ -57,10 +54,10 @@ if (!gameManager.GetComponent<GameManager>().GameStart)
             weaponEvolution.GetComponent<WeaponEvolution>().GainExp(10f);
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
-
+        
             collision.GetComponent<Target>().ShakeApple();
             Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(weaponEvolution.GetComponent<WeaponEvolution>().Damage());
-
+            
         }
     }
 }

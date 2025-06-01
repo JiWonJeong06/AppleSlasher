@@ -10,7 +10,7 @@ public class Apple_Spawner : MonoBehaviour
     public float Boss_Hp = 105f;
     public GameObject gameManager;
 
-
+    public float Apple_Hp_Bar;
 
     public AppleDestructionEffect ade;
     void Start()
@@ -28,27 +28,27 @@ public class Apple_Spawner : MonoBehaviour
 
         if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
         {
-           apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Boss_Hp;
+           Apple_Hp_Bar = Boss_Hp;
            
         }
         else
-           apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar = Max_Hp;
+           Apple_Hp_Bar = Max_Hp;
         
 
     }
 
     public void Damage_Apple(float Damage)
     {
-        apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar -= Damage;
+        Apple_Hp_Bar -= Damage;
     }
 
     void Update()
     {
         if (apple_inst != null)
         {
-            Current_Hp = apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar;
+            Current_Hp = Apple_Hp_Bar;
 
-            if (apple_inst.GetComponent<Apple_Hp>().Apple_Hp_Bar <= 0)
+            if (Apple_Hp_Bar <= 0)
             {
                 Destroy(apple_inst);
                 ade.PlayDestructionEffect();
