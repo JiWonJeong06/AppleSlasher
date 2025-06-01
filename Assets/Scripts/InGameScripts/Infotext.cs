@@ -16,6 +16,8 @@ public class Infotext : MonoBehaviour
 
     public WeaponEvolution wp;
 
+    public GameManager gameManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,9 +31,12 @@ public class Infotext : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    if (!gameManager.GameStart)
+            return;
+    
         if (raredamage)
         {
-            raredamagetext.text = "칼: " + wp.WeaponName() +  "\n공격력: " + wp.Damage();
+            raredamagetext.text = "칼: " + wp.WeaponName() + "\n공격력: " + wp.Damage();
         }
         if (xp)
         {

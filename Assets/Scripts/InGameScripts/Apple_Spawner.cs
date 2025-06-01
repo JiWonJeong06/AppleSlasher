@@ -15,11 +15,10 @@ public class Apple_Spawner : MonoBehaviour
     public AppleDestructionEffect ade;
     void Start()
     {
-
-        Application.targetFrameRate = 60; 
-        QualitySettings.vSyncCount = 0;
         Apple_Spawn();
- 
+
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0; 
 
 
     }
