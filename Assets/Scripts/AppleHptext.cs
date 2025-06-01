@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+//사과 hp표시기기
 public class AppleHptext : MonoBehaviour
 {
     public GameObject Apple_Spawner;       // Apple_Spawner 오브젝트 참조
@@ -12,15 +12,9 @@ public class AppleHptext : MonoBehaviour
 
     void Start()
     {
-        // Apple_Spawner 스크립트를 미리 가져와 캐싱
         if (Apple_Spawner != null)
         {
             appleSpawnerScript = Apple_Spawner.GetComponent<Apple_Spawner>();
-        }
-
-        if (applehptext == null)
-        {
-            Debug.LogWarning("AppleHptext: applehptext(UI Text)가 설정되지 않았습니다.");
         }
     }
 
@@ -37,7 +31,6 @@ public class AppleHptext : MonoBehaviour
             }
             if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
             applehptext.text =  $"{current:F1}/{boss:F1}";
-            // 형식: 75 / 100 또는 퍼센트: 75%
              else   applehptext.text = $"{current:F1}/{max:F1}";
           
         }

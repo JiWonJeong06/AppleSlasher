@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+// 사과 스포너
 public class Apple_Spawner : MonoBehaviour
 {
     public GameObject apple_prefab;
@@ -16,32 +16,25 @@ public class Apple_Spawner : MonoBehaviour
     void Start()
     {
         Apple_Spawn();
-
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 0; 
-
-
     }
     public void Apple_Spawn()
     {
         apple_inst = Instantiate(apple_prefab, new Vector3(0, 0.5f, 0), Quaternion.identity);
-
         if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
         {
-           Apple_Hp_Bar = Boss_Hp;
-           
+            Apple_Hp_Bar = Boss_Hp;
         }
         else
-           Apple_Hp_Bar = Max_Hp;
-        
-
+        {
+            Apple_Hp_Bar = Max_Hp;
+        }    
     }
-
     public void Damage_Apple(float Damage)
     {
         Apple_Hp_Bar -= Damage;
     }
-
     void Update()
     {
         if (apple_inst != null)

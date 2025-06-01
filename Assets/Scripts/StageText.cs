@@ -3,18 +3,26 @@ using UnityEngine.UI;
 
 public class StageText : MonoBehaviour
 {
-    public Text stagetext;
-    public Text best_stagetext;
+    Text stagetext;
+    public bool BestStage;
+    public float BestStagelevel;
     public GameObject gameManager;
+
+    void Start()
+    {
+        stagetext = GetComponent<Text>();
+        if (BestStage)
+        {
+            BestStagelevel = PlayerPrefs.GetInt("Score");
+            stagetext.text = "Best Stage " + BestStagelevel.ToString("F0");
+        }
+    }
     void Update()
     {
+        if (BestStage && gameManager.GetComponent<GameManager>().stagelevel < BestStagelevel)
+            return;
         
-        if (int.Parse(best_stagetext.text.Split(' ')[2]) <= gameManager.GetComponent<GameManager>().stagelevel)
-        {
-
-            best_stagetext.text = "Best Stage " + gameManager.GetComponent<GameManager>().stagelevel;
-        }
-        if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
+        else if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
         {
             stagetext.text = "Stage Boss";
         }

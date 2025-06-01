@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//사과 4등분 쪼깸 애니메이션션
 public class AppleDestructionEffect : MonoBehaviour
 {
     public GameObject[] appleParts;     // 4등분 사과 프리팹 배열
