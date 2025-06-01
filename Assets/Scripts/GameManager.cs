@@ -17,13 +17,11 @@ public class GameManager : MonoBehaviour
     public bool Gamestart; 
 
     public void sstart(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
-            Gamestart = true;
             Start.SetActive(false);
             Main.SetActive(true);
         }
     
     public void mmain(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
-            Gamestart = true;
             Main.SetActive(false);
             InGame.SetActive(true);
         }
@@ -50,9 +48,15 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(true);
         int highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
-        SceneManager.LoadScene(0);
+        Gameover.SetActive(true);
     }
-
+    public void Restart()
+    {
+        Gameover.SetActive(false);
+        SceneManager.LoadScene(0);
+        Start.SetActive(false);
+        InGame.SetActive(true);
+    }
     public void GameExit(){
         Debug.Log("게임나가짐");
         Application.Quit();
