@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject Gameover;
 
     public bool GameStart;
+    
     void Update()
     {
         if (stagelevel % 5 == 0)
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-    
+        transform.gameObject.SetActive(true);
     }
     void GameOverUI()
     {

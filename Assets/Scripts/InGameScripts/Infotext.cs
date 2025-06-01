@@ -39,7 +39,7 @@ public class Infotext : MonoBehaviour
         }
         if (level)
         {
-            leveltext.text = "Level " + wp.currentLevel.ToString("F0");
+            leveltext.text = "Lv.  " + wp.currentLevel.ToString("F0");
         }
 
     }

@@ -38,10 +38,7 @@ public class Pin : MonoBehaviour
 
         if (collision.CompareTag("Pin"))
         {
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             gameManager.GetComponent<GameManager>().GameOver();
-
         }
 
 
