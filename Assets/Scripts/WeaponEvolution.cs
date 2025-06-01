@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+// csv파일 불러오기기
 public class WeaponEvolution : MonoBehaviour
 {
     [System.Serializable]

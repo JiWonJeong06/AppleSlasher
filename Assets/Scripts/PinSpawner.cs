@@ -1,8 +1,6 @@
-using System.Net;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+//핀 스포너너
 public class PinSpawner : MonoBehaviour
 {
 	[SerializeField]
@@ -12,10 +10,8 @@ public class PinSpawner : MonoBehaviour
 	public GameObject inst_pin;
 	public GameObject weaponEvolution;
 	public GameObject[] KnifeList;
-
 	public SpriteRenderer sprite;
 	public Sprite[] KnifeSprite;
-
 	public string Name;
 
 

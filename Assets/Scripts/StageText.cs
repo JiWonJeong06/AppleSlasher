@@ -21,7 +21,12 @@ public class StageText : MonoBehaviour
     {
         if (BestStage && gameManager.GetComponent<GameManager>().stagelevel < BestStagelevel)
             return;
-        
+
+
+        if (BestStage)
+        {
+            stagetext.text = "최고 기록 달성!";
+        }
         else if (gameManager.GetComponent<GameManager>().stagelevel % 5 == 0)
         {
             stagetext.text = "Stage Boss";

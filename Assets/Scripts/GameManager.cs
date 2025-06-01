@@ -1,6 +1,7 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 //게임 매니저저
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,20 @@ public class GameManager : MonoBehaviour
     public void sstart(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
             Gamestart = true;
             Start.SetActive(false);
+            Main.SetActive(true);
+        }
+    
+    public void mmain(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
+            Gamestart = true;
+            Main.SetActive(false);
             InGame.SetActive(true);
         }
-
+    void Awake()
+        {
+            if (!PlayerPrefs.HasKey("Score")) {
+                PlayerPrefs.SetInt("Score", 0);
+        }
+    }
 
     void Update()
     {
@@ -36,8 +48,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Gameover.SetActive(true);
-        float highstagelevel = PlayerPrefs.GetFloat("Score");
-        PlayerPrefs.SetFloat("Score", Mathf.Max(highstagelevel, stagelevel));
+        int highstagelevel = PlayerPrefs.GetInt("Score");
+        PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
+        SceneManager.LoadScene(0);
     }
 
     public void GameExit(){

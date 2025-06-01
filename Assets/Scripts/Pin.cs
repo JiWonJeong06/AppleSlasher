@@ -1,21 +1,15 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-
+//핀핀
 public class Pin : MonoBehaviour
 {
     [SerializeField]
     private Transform hitEffectSpawnPoint;
     [SerializeField]
     private GameObject hitEffectPrefab;
-
     private Movement2D movement2D;
-
     public GameObject Apple_Spawner;
-
     public GameObject gameManager;
-
     public GameObject weaponEvolution;
 
 

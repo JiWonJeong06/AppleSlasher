@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+//사과과
 public class Target : MonoBehaviour
 {
 	private float rotateSpeed = 100;
