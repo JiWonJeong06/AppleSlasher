@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject Gameover;
     public bool isGameOver = false;
 
+
+
     public void sstart()
     { //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
         Start.SetActive(false);
@@ -59,17 +61,27 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
 
     }
-    public void StartDia()
+    public void StartDia() // 보석 쓰고 다시 시작하기
     {
-        Time.timeScale = 1f;
-        isGameOver = false;
-        Gameover.SetActive(false);
+        if (Diamond.GetComponent<Diamond>().Diamonds >= 400)
+        {
+            Debug.Log("400개 사용");
+            Diamond.GetComponent<Diamond>().Diamonds -= 400;
+            Gameover.SetActive(false);
+            isGameOver = false;
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Debug.Log("400개 이상 있지 않아 사용 불가");
+        }
     }
-    public void StartAD()
+    public void StartAD() //광고 보고 다시 시작하기
     {
-        Time.timeScale = 1f;
-        isGameOver = false;
         Gameover.SetActive(false);
+        isGameOver = false;
+        Time.timeScale = 1f;
+
     }
     public void MainExit()
 
@@ -85,14 +97,20 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+
+
     public void Shop()
     {
-    Debug.Log("상점 열림!");
+        Debug.Log("상점 열림!");
     }
 
     public void Settings()
     {
         Debug.Log("설정 열림!");
+    }
+        public void Helps()
+    {
+        Debug.Log("도움말 열림!");
     }
 
 

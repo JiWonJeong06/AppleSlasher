@@ -15,13 +15,13 @@ public class Diamond : MonoBehaviour
 
     void Update()
     {
+        Diamonds = PlayerPrefs.GetInt("Diamonds", 0);
         Dia_Text.text = Diamonds.ToString();
     }
 
-    // 스테이지 클리어 시 호출 (5, 10, 15레벨 등에서만 호출됨)
     public void AddDiamondsForStageClear(int stageLevel)
     {
-        if (stageLevel % 5 == 0)
+        if (stageLevel % 5 == 0 )
         {
             earnedDiamondsThisRun += 30;
             Debug.Log($"[다이아] 스테이지 {stageLevel} 클리어 → 30 다이아 적립 (총: {earnedDiamondsThisRun})");
