@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   moveDirection: {x: 0, y: 1, z: 0}
+  isBounced: 0
 --- !u!50 &3946458354919003887
 Rigidbody2D:
   serializedVersion: 5
@@ -180,7 +181,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 7
 --- !u!61 &8965246461435636985

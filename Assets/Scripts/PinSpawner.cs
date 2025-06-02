@@ -14,11 +14,12 @@ public class PinSpawner : MonoBehaviour
 	public Sprite[] KnifeSprite;
 	public string Name;
 
+    public bool enablepin = true;
 
 	private void Update()
-	{    
-            
-		if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame && Apple_Spawner.GetComponent<Apple_Spawner>().apple_inst != null)
+    {
+
+        if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame && Apple_Spawner.GetComponent<Apple_Spawner>().apple_inst != null && enablepin)
         {
             UpdatePinByRarity();
             inst_pin = Instantiate(pinPrefab, transform.position, Quaternion.identity);
@@ -27,7 +28,7 @@ public class PinSpawner : MonoBehaviour
             inst_pin.GetComponent<Pin>().weaponEvolution = weaponEvolution;
         }
 
-	}
+    }
 	 private void UpdatePinByRarity()
     {
 		Name = weaponEvolution.GetComponent<WeaponEvolution>().WeaponName();

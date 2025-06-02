@@ -62,27 +62,22 @@ public class Apple_Spawner : MonoBehaviour
                 Destroy(apple_inst);
                 ade.PlayDestructionEffect();
                 gameManager.GetComponent<GameManager>().StageClear();
-
                 int stageLevel = gameManager.GetComponent<GameManager>().stagelevel;
-
                 // 다음 스테이지가 보스가 아니면 lastNormalStageHp 증가
                 if ((stageLevel + 1) % 5 != 0)
                 {
                     lastNormalStageHp += 5f;
                 }
-
                 gameManager.GetComponent<GameManager>().stagelevel += 1;
 
                 StartCoroutine(Next_Round());
             }
         }
     }
-
     IEnumerator Waittime(float time)
     {
         yield return new WaitForSeconds(time);
     }
-
     IEnumerator Next_Round()
     {
         yield return Waittime(0.5f);

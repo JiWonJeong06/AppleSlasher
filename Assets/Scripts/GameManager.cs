@@ -16,10 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject Gameover;
     public bool isGameOver = false;
 
-
-
-    public void sstart()
-    { //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
+    public void Sstart()
+    {                           //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
         Start.SetActive(false);
         InGame.SetActive(true);
     }
@@ -56,9 +54,10 @@ public class GameManager : MonoBehaviour
         int highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
         Diamond.GetComponent<Diamond>().ShowRunResult();
-        // 누적 다이아 수를 UI에 보여주고 싶다면:
         Gameover.SetActive(true);
         Time.timeScale = 0f;
+        Pin_Spawner.GetComponent<PinSpawner>().enablepin = false;
+        
 
     }
     public void StartDia() // 보석 쓰고 다시 시작하기
@@ -70,6 +69,8 @@ public class GameManager : MonoBehaviour
             Gameover.SetActive(false);
             isGameOver = false;
             Time.timeScale = 1f;
+            Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
+            Diamond.GetComponent<Diamond>(). earnedDiamondsThisRun = 0;
         }
         else
         {
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(false);
         isGameOver = false;
         Time.timeScale = 1f;
+        Diamond.GetComponent<Diamond>(). earnedDiamondsThisRun = 0;
 
     }
     public void MainExit()
@@ -89,6 +91,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isGameOver = false;
         SceneManager.LoadScene(0);
+        Diamond.GetComponent<Diamond>(). earnedDiamondsThisRun = 0;
     }
 
     public void GameExit()
@@ -112,6 +115,5 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("도움말 열림!");
     }
-
-
+  
 }

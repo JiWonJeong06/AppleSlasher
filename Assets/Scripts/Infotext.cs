@@ -8,13 +8,16 @@ public class Infotext : MonoBehaviour
     public bool raredamage;
     public bool xp;
 
+    public bool dia;
+
     Text leveltext;
 
     Text raredamagetext;
 
     Text  xptext;
-
+    Text DiaText; // UI 텍스트
     public WeaponEvolution wp;
+    public Diamond diamond;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +26,7 @@ public class Infotext : MonoBehaviour
         leveltext = GetComponent<Text>();
         raredamagetext = GetComponent<Text>();
         xptext = GetComponent<Text>();
+        DiaText = GetComponent<Text>();
   
     }
 
@@ -31,7 +35,7 @@ public class Infotext : MonoBehaviour
     {
         if (raredamage)
         {
-            raredamagetext.text = "칼: " + wp.WeaponName() +  "\n공격력: " + wp.Damage();
+            raredamagetext.text = "칼: " + wp.WeaponName() + "\n공격력: " + wp.Damage();
         }
         if (xp)
         {
@@ -40,6 +44,10 @@ public class Infotext : MonoBehaviour
         if (level)
         {
             leveltext.text = "Lv. " + wp.currentLevel.ToString("F0");
+        }
+        if (dia)
+        {
+            DiaText.text = diamond.Diamonds.ToString("F0");
         }
 
     }

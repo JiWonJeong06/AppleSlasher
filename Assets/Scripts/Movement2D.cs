@@ -6,7 +6,6 @@ public class Movement2D : MonoBehaviour
 	private	float	moveSpeed = 20;
 	[SerializeField]
 	private	Vector3	moveDirection = Vector3.up;
-
 	private void Update()
 	{
 		
