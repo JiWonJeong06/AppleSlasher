@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public Slider slider;
     public GameObject Apple_Spawner;
     public GameObject Pin_Spawner;
-    public GameObject Main;
     public GameObject Start;
     public GameObject InGame;
     public GameObject Gameover;
@@ -18,13 +17,10 @@ public class GameManager : MonoBehaviour
 
     public void sstart(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
             Start.SetActive(false);
-            Main.SetActive(true);
-        }
-    
-    public void mmain(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
-            Main.SetActive(false);
             InGame.SetActive(true);
         }
+    
+
     void Awake()
         {
             if (!PlayerPrefs.HasKey("Score")) {
@@ -53,8 +49,6 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Gameover.SetActive(false);
-        SceneManager.LoadScene(0);
-        Start.SetActive(false);
         InGame.SetActive(true);
     }
     public void GameExit(){
