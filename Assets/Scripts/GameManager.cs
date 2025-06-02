@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Slider slider;
     public GameObject Apple_Spawner;
     public GameObject Pin_Spawner;
+    public GameObject Diamond;
     public GameObject Start;
     public GameObject InGame;
     public GameObject Gameover;
@@ -41,12 +42,23 @@ public class GameManager : MonoBehaviour
             slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp;
 
     }
+    public void StageClear()
+    {
+        // 예시: 스테이지 클리어 시
+        Diamond.GetComponent<Diamond>().AddDiamondsForStageClear(stagelevel);
+    }
     public void GameOver()
     {
-        Gameover.SetActive(true);
         int highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
+        Diamond.GetComponent<Diamond>().ApplyEarnedDiamonds();
+        // 누적 다이아 수를 UI에 보여주고 싶다면:
+        int earned = Diamond.GetComponent<Diamond>().GetEarnedDiamonds();
+        Debug.Log($"이번 플레이로 획득한 다이아: {earned}");
         Gameover.SetActive(true);
+
+
+
     }
     public void Restart()
     {

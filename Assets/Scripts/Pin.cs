@@ -11,7 +11,7 @@ public class Pin : MonoBehaviour
     public GameObject Apple_Spawner;
     public GameObject gameManager;
     public GameObject weaponEvolution;
-
+    private Rigidbody2D rb;
 
     public float damage;
 
@@ -24,6 +24,7 @@ public class Pin : MonoBehaviour
 
     {
         movement2D = GetComponent<Movement2D>();
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -32,7 +33,6 @@ public class Pin : MonoBehaviour
 
         if (collision.CompareTag("Pin"))
         {
-
             
             gameManager.GetComponent<GameManager>().GameOver();
 
