@@ -137,7 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   moveDirection: {x: 0, y: 1, z: 0}
-  isBounced: 0
 --- !u!114 &9002704660973764396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +156,7 @@ MonoBehaviour:
   weaponEvolution: {fileID: 0}
   damage: 0
   add_value: 10
+  isStuck: 0
 --- !u!50 &3946458354919003887
 Rigidbody2D:
   serializedVersion: 5
@@ -218,7 +218,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.087736875}
+  m_Offset: {x: 0.00091063976, y: -0.061328113}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -228,5 +228,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.15, y: 0.8254737}
+  m_Size: {x: 0.25745624, y: 0.87829125}
   m_EdgeRadius: 0

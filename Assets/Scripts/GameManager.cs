@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int stagelevel = 1;
+    public int highstagelevel;
 
     public Slider slider;
     public GameObject Apple_Spawner;
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject InGame;
     public GameObject Gameover;
     public bool isGameOver = false;
+
+    
 
     public void Sstart()
     {                           //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
@@ -47,12 +50,12 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver) return;  // 중복 방지
         isGameOver = true;
-        int highstagelevel = PlayerPrefs.GetInt("Score");
-        PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
         Gameover.SetActive(true);
-        Time.timeScale = 0f;
+        highstagelevel = PlayerPrefs.GetInt("Score");
+        PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
         Pin_Spawner.GetComponent<PinSpawner>().enablepin = false;
         Diamond.GetComponent<Diamond>().ShowRunResult();
+        Time.timeScale = 0f;
         
 
     }
@@ -66,6 +69,7 @@ public class GameManager : MonoBehaviour
             isGameOver = false;
             Time.timeScale = 1f;
             Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
+            Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
       
         }
         else
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(false);
         isGameOver = false;
         Time.timeScale = 1f;
+         Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
       
 
     }
@@ -86,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         isGameOver = false;
+         Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
         SceneManager.LoadScene(0);
     
     }

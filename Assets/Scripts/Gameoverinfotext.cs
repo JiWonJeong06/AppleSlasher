@@ -5,7 +5,7 @@ public class Gameoverinfotext : MonoBehaviour
 {
 
     public GameObject Diamond;
-
+    public GameManager gameManager;
     public bool mystage;
     public bool mybeststage;
     public bool mysetdia;
@@ -29,11 +29,11 @@ public class Gameoverinfotext : MonoBehaviour
     {
         if (mystage)
         {
-            mystagetext.text = "현재 스테이지: ";
+            mystagetext.text = "현재 스테이지: " + gameManager.GetComponent<GameManager>().stagelevel.ToString("F0");
         }
         if (mybeststage)
         {
-            mybeststagetext.text = "최고 스테이지: " ;
+            mybeststagetext.text = "최고 스테이지: " + gameManager.GetComponent<GameManager>().highstagelevel.ToString("F0");
         }
         if (mydia)
         {

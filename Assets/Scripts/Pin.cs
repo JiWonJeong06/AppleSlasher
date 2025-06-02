@@ -42,7 +42,7 @@ public class Pin : MonoBehaviour
             if (otherPin != null && otherPin.isStuck && !this.isStuck)
             {
                 movement2D.MoveTo(new Vector3(-1f, -1f, 0f));
-                StartCoroutine(DelayedGameOver(0.25f));
+                StartCoroutine(DelayedGameOver(0.5f));
             }
         }
         else if (collision.CompareTag("Target"))

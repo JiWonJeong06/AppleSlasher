@@ -11,11 +11,15 @@ public class Diamond : MonoBehaviour
 
     public Text InGametext;
 
+    void Start()
+    {
+        Diamonds = PlayerPrefs.GetInt("Diamonds", 0);
 
+    }
 
     void Update()
     {
-        Diamonds = PlayerPrefs.GetInt("Diamonds", 0);
+      
         Titletext.text = Diamonds.ToString("F0");
         InGametext.text = Diamonds.ToString("F0");
     }
@@ -36,5 +40,6 @@ public class Diamond : MonoBehaviour
         PlayerPrefs.SetInt("Diamonds", Diamonds);
         PlayerPrefs.Save();
         Debug.Log($"[다이아] 총 다이아: {Diamonds}에  {earnedDiamondsThisRun} 만큼 저장 완료");
+       
     }
 }
