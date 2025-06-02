@@ -13,24 +13,26 @@ public class GameManager : MonoBehaviour
     public GameObject Start;
     public GameObject InGame;
     public GameObject Gameover;
-    public bool Gamestart; 
+    public bool Gamestart;
 
-    public void sstart(){ //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
-            Start.SetActive(false);
-            InGame.SetActive(true);
-        }
-    
+    public void sstart()
+    { //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
+        Start.SetActive(false);
+        InGame.SetActive(true);
+    }
+
 
     void Awake()
+    {
+        if (!PlayerPrefs.HasKey("Score"))
         {
-            if (!PlayerPrefs.HasKey("Score")) {
-                PlayerPrefs.SetInt("Score", 0);
+            PlayerPrefs.SetInt("Score", 0);
         }
     }
 
     void Update()
     {
- 
+
         if (stagelevel % 5 == 0)
         {
             slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Boss_Hp;
@@ -49,12 +51,32 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Gameover.SetActive(false);
-        InGame.SetActive(true);
+        SceneManager.LoadScene(0);
     }
-    public void GameExit(){
+    public void StartAD()
+    {
+
+    }
+    public void MainExit()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void GameExit()
+    {
         Debug.Log("게임나가짐");
         Application.Quit();
-}
+    }
+
+    public void Shop()
+    {
+    Debug.Log("상점 열림!");
+    }
+
+    public void Settings()
+    {
+        Debug.Log("설정 열림!");
+    }
 
 
 }
