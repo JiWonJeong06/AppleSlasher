@@ -911,8 +911,6 @@ GameObject:
   - component: {fileID: 413408225}
   - component: {fileID: 413408227}
   - component: {fileID: 413408226}
-  - component: {fileID: 413408228}
-  - component: {fileID: 413408229}
   m_Layer: 5
   m_Name: DiaText (2)
   m_TagString: Untagged
@@ -982,37 +980,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413408224}
   m_CullTransparentMesh: 1
---- !u!114 &413408228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413408224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b92ac11e463c342a792718ab52c2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  raredamage: 0
-  xp: 0
-  dia: 1
-  wp: {fileID: 128697938}
-  diamond: {fileID: 904506630}
---- !u!114 &413408229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413408224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fb00580af6bbb40808dbac88e77bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Diamonds: 0
 --- !u!1 &438708738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdab05ac40b76d4daa6ff79e84fb268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Diamonds: {fileID: 0}
+  Diamond: {fileID: 904506629}
   mystage: 0
   mybeststage: 1
   mysetdia: 0
@@ -1818,7 +1785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdab05ac40b76d4daa6ff79e84fb268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Diamonds: {fileID: 0}
+  Diamond: {fileID: 904506629}
   mystage: 0
   mybeststage: 0
   mysetdia: 1
@@ -2357,6 +2324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Diamonds: 0
+  earnedDiamondsThisRun: 0
+  Titletext: {fileID: 1585186289}
+  InGametext: {fileID: 413408226}
 --- !u!4 &904506631
 Transform:
   m_ObjectHideFlags: 0
@@ -2887,9 +2857,7 @@ MonoBehaviour:
   level: 1
   raredamage: 0
   xp: 0
-  dia: 0
   wp: {fileID: 128697938}
-  diamond: {fileID: 904506630}
 --- !u!1 &1157835885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,7 +2963,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1224844508
 Transform:
   m_ObjectHideFlags: 0
@@ -3618,9 +3586,7 @@ MonoBehaviour:
   level: 0
   raredamage: 0
   xp: 1
-  dia: 0
   wp: {fileID: 128697938}
-  diamond: {fileID: 904506630}
 --- !u!1 &1569504088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,8 +3731,6 @@ GameObject:
   - component: {fileID: 1585186288}
   - component: {fileID: 1585186290}
   - component: {fileID: 1585186289}
-  - component: {fileID: 1585186291}
-  - component: {fileID: 1585186292}
   m_Layer: 5
   m_Name: DIAMOND
   m_TagString: Untagged
@@ -3836,37 +3800,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585186287}
   m_CullTransparentMesh: 1
---- !u!114 &1585186291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585186287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b92ac11e463c342a792718ab52c2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  raredamage: 0
-  xp: 0
-  dia: 1
-  wp: {fileID: 128697938}
-  diamond: {fileID: 904506630}
---- !u!114 &1585186292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585186287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fb00580af6bbb40808dbac88e77bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Diamonds: 0
 --- !u!1 &1601529981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,7 +3967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdab05ac40b76d4daa6ff79e84fb268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Diamonds: {fileID: 0}
+  Diamond: {fileID: 904506629}
   mystage: 0
   mybeststage: 0
   mysetdia: 0
@@ -4226,7 +4159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdab05ac40b76d4daa6ff79e84fb268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Diamonds: {fileID: 0}
+  Diamond: {fileID: 904506629}
   mystage: 1
   mybeststage: 0
   mysetdia: 0
@@ -5261,9 +5194,7 @@ MonoBehaviour:
   level: 0
   raredamage: 1
   xp: 0
-  dia: 0
   wp: {fileID: 128697938}
-  diamond: {fileID: 904506630}
 --- !u!1 &2037810612
 GameObject:
   m_ObjectHideFlags: 0

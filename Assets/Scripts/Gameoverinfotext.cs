@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Gameoverinfotext : MonoBehaviour
 {
 
-    public GameObject Diamonds;
+    public GameObject Diamond;
 
     public bool mystage;
     public bool mybeststage;
@@ -37,11 +37,11 @@ public class Gameoverinfotext : MonoBehaviour
         }
         if (mydia)
         {
-            mydiatext.text = "획득 다이아: +" + Diamonds.GetComponent<Diamond>().earnedDiamondsThisRun.ToString("F0");
+            mydiatext.text = "획득 다이아: +" + Diamond.GetComponent<Diamond>().earnedDiamondsThisRun.ToString("F0");
         }
         if (mysetdia)
         {
-            mysetdiatext.text = "보유한 다이아: "+ Diamonds.GetComponent<Diamond>().Diamonds.ToString("F0");
+            mysetdiatext.text = "보유한 다이아: "+ Diamond.GetComponent<Diamond>().Diamonds.ToString("F0");
         }
     }
 }

@@ -6,6 +6,8 @@ public class Apple_Spawner : MonoBehaviour
     public GameObject apple_prefab;
     public GameObject apple_inst;
 
+    public GameObject Diamond;
+
     public float Apple_Hp_Bar;       // 현재 사과 체력
     public float Current_Hp;         // UI 표시용 현재 체력
 
@@ -61,8 +63,8 @@ public class Apple_Spawner : MonoBehaviour
             {
                 Destroy(apple_inst);
                 ade.PlayDestructionEffect();
-                gameManager.GetComponent<GameManager>().StageClear();
                 int stageLevel = gameManager.GetComponent<GameManager>().stagelevel;
+                Diamond.GetComponent<Diamond>().AddDiamondsForStageClear(stageLevel);
                 // 다음 스테이지가 보스가 아니면 lastNormalStageHp 증가
                 if ((stageLevel + 1) % 5 != 0)
                 {

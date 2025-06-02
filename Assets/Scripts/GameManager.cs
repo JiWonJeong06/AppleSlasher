@@ -42,21 +42,17 @@ public class GameManager : MonoBehaviour
             slider.value = Apple_Spawner.GetComponent<Apple_Spawner>().Current_Hp / Apple_Spawner.GetComponent<Apple_Spawner>().Max_Hp;
 
     }
-    public void StageClear()
-    {
-        // 예시: 스테이지 클리어 시
-        Diamond.GetComponent<Diamond>().AddDiamondsForStageClear(stagelevel);
-    }
+
     public void GameOver()
     {
         if (isGameOver) return;  // 중복 방지
         isGameOver = true;
         int highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
-        Diamond.GetComponent<Diamond>().ShowRunResult();
         Gameover.SetActive(true);
         Time.timeScale = 0f;
         Pin_Spawner.GetComponent<PinSpawner>().enablepin = false;
+        Diamond.GetComponent<Diamond>().ShowRunResult();
         
 
     }
@@ -70,7 +66,7 @@ public class GameManager : MonoBehaviour
             isGameOver = false;
             Time.timeScale = 1f;
             Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
-            Diamond.GetComponent<Diamond>(). earnedDiamondsThisRun = 0;
+      
         }
         else
         {
@@ -82,7 +78,7 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(false);
         isGameOver = false;
         Time.timeScale = 1f;
-        Diamond.GetComponent<Diamond>(). earnedDiamondsThisRun = 0;
+      
 
     }
     public void MainExit()
@@ -91,7 +87,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isGameOver = false;
         SceneManager.LoadScene(0);
-        Diamond.GetComponent<Diamond>(). earnedDiamondsThisRun = 0;
+    
     }
 
     public void GameExit()
