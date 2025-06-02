@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject Start;
     public GameObject InGame;
     public GameObject Gameover;
-    public bool Gamestart;
+    public bool isGameOver = false;
 
     public void sstart()
     { //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
@@ -49,28 +49,32 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        if (isGameOver) return;  // 중복 방지
+        isGameOver = true;
         int highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
-        Diamond.GetComponent<Diamond>().ApplyEarnedDiamonds();
+        Diamond.GetComponent<Diamond>().ShowRunResult();
         // 누적 다이아 수를 UI에 보여주고 싶다면:
-        int earned = Diamond.GetComponent<Diamond>().GetEarnedDiamonds();
-        Debug.Log($"이번 플레이로 획득한 다이아: {earned}");
         Gameover.SetActive(true);
+        Time.timeScale = 0f;
 
 
 
     }
-    public void Restart()
+    public void StartDia()
     {
+        Time.timeScale = 1f;
         Gameover.SetActive(false);
-        SceneManager.LoadScene(0);
     }
     public void StartAD()
     {
-
+        Time.timeScale = 1f;
+        Gameover.SetActive(false);
     }
     public void MainExit()
+
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 

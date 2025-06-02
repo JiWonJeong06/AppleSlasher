@@ -3,50 +3,42 @@ using UnityEngine.UI;
 
 public class Diamond : MonoBehaviour
 {
-    public int diamonds;              // 보유 다이아
-    public int earnedDiamonds = 0;   // 이번 플레이 중 얻은 다이아
-    public Text diaText;             // 다이아 UI 텍스트
+    public int Diamonds; // 총 보유 다이아
+    private int earnedDiamondsThisRun = 0; // 이번 게임에서 획득한 다이아
 
+    public Text Dia_Text; // UI 텍스트
     void Start()
     {
-        diamonds = PlayerPrefs.GetInt("Diamonds", 0);
-        UpdateUIDisplay();
+        Diamonds = PlayerPrefs.GetInt("Diamonds", 0);
+        Dia_Text.text = Diamonds.ToString();
     }
 
     void Update()
     {
-        // 실시간 UI 표시
-        UpdateUIDisplay();
+        Dia_Text.text = Diamonds.ToString();
     }
 
-    void UpdateUIDisplay()
-    {
-        diaText.text = diamonds.ToString();
-    }
-
-    // 스테이지 클리어 시 호출
+    // 스테이지 클리어 시 호출 (5, 10, 15레벨 등에서만 호출됨)
     public void AddDiamondsForStageClear(int stageLevel)
     {
         if (stageLevel % 5 == 0)
         {
-            earnedDiamonds += 30;
-            Debug.Log($"[다이아] 스테이지 {stageLevel} 클리어 → 30 다이아 적립 (총: {earnedDiamonds})");
+            earnedDiamondsThisRun += 30;
+            Debug.Log($"[다이아] 스테이지 {stageLevel} 클리어 → 30 다이아 적립 (총: {earnedDiamondsThisRun})");
         }
     }
 
     // 게임 오버 시 호출
-    public void ApplyEarnedDiamonds()
+    public void ShowRunResult()
     {
-        diamonds += earnedDiamonds;
-        earnedDiamonds = 0;
-        PlayerPrefs.SetInt("Diamonds", diamonds);
-        PlayerPrefs.Save();
-        Debug.Log($"[다이아] 총 다이아: {diamonds} 저장 완료");
-    }
+        Debug.Log($"[다이아] 이번 플레이로 획득한 다이아: {earnedDiamondsThisRun}");
 
-    // 게임 오버 화면에서 표시할 때 사용
-    public int GetEarnedDiamonds()
-    {
-        return earnedDiamonds;
+        Diamonds += earnedDiamondsThisRun;
+        PlayerPrefs.SetInt("Diamonds", Diamonds);
+        PlayerPrefs.Save();
+
+        Debug.Log($"[다이아] 총 다이아: {Diamonds} 저장 완료");
+
+        earnedDiamondsThisRun = 0;
     }
 }

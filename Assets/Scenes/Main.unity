@@ -992,9 +992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fb00580af6bbb40808dbac88e77bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamonds: 0
-  earnedDiamonds: 0
-  diaText: {fileID: 413408226}
+  Diamonds: 0
+  Dia_Text: {fileID: 413408226}
 --- !u!1 &438708738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,9 +3460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fb00580af6bbb40808dbac88e77bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamonds: 0
-  earnedDiamonds: 0
-  diaText: {fileID: 1585186289}
+  Diamonds: 0
+  Dia_Text: {fileID: 1585186289}
 --- !u!1 &1601529981
 GameObject:
   m_ObjectHideFlags: 0
