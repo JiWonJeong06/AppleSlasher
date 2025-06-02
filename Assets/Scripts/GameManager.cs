@@ -58,23 +58,24 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(true);
         Time.timeScale = 0f;
 
-
-
     }
     public void StartDia()
     {
         Time.timeScale = 1f;
+        isGameOver = false;
         Gameover.SetActive(false);
     }
     public void StartAD()
     {
         Time.timeScale = 1f;
+        isGameOver = false;
         Gameover.SetActive(false);
     }
     public void MainExit()
 
     {
         Time.timeScale = 1f;
+        isGameOver = false;
         SceneManager.LoadScene(0);
     }
 
