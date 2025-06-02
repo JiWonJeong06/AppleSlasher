@@ -48,7 +48,7 @@ public class WeaponEvolution : MonoBehaviour
         {
             currentExp -= expPerLevel;
             currentLevel++;
-            expPerLevel += 10f;
+            expPerLevel += 7f;
 
            // Debug.Log($"레벨업! 현재 레벨: {currentLevel}");
 
