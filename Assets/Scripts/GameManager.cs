@@ -17,7 +17,11 @@ public class GameManager : MonoBehaviour
     public GameObject Gameover;
     public bool isGameOver = false;
 
-    
+    //UI 창
+    public GameObject StoreUI;
+    public GameObject SetUI;
+    public GameObject HelpUI;
+
 
     public void Sstart()
     {                           //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
@@ -48,15 +52,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (isGameOver) return;  // 중복 방지
-        isGameOver = true;
+    
+
         Gameover.SetActive(true);
         highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
-        Pin_Spawner.GetComponent<PinSpawner>().enablepin = false;
         Diamond.GetComponent<Diamond>().ShowRunResult();
         Time.timeScale = 0f;
-        
+
 
     }
     public void StartDia() // 보석 쓰고 다시 시작하기
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
             Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
-      
+
         }
         else
         {
@@ -82,8 +85,8 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(false);
         isGameOver = false;
         Time.timeScale = 1f;
-         Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
-      
+        Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
+
 
     }
     public void MainExit()
@@ -91,9 +94,9 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         isGameOver = false;
-         Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
+        Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
         SceneManager.LoadScene(0);
-    
+
     }
 
     public void GameExit()
@@ -106,16 +109,25 @@ public class GameManager : MonoBehaviour
 
     public void Shop()
     {
+        StoreUI.SetActive(true);
         Debug.Log("상점 열림!");
     }
 
     public void Settings()
     {
+        SetUI.SetActive(true);
         Debug.Log("설정 열림!");
     }
-        public void Helps()
+    public void Helps()
     {
+        HelpUI.SetActive(true);
         Debug.Log("도움말 열림!");
+    }
+    public void ExitUI()
+    {
+        StoreUI.SetActive(false);
+        SetUI.SetActive(false);
+        HelpUI.SetActive(false);
     }
   
 }

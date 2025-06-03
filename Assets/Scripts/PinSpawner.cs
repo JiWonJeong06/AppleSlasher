@@ -9,6 +9,9 @@ public class PinSpawner : MonoBehaviour
 	public GameObject gameManager;
 	public GameObject inst_pin;
 	public GameObject weaponEvolution;
+    public GameObject pinspawner;
+    public GameObject soundManager;
+    public AudioClip shoot;
 	public GameObject[] KnifeList;
 	public SpriteRenderer sprite;
 	public Sprite[] KnifeSprite;
@@ -26,6 +29,9 @@ public class PinSpawner : MonoBehaviour
             inst_pin.GetComponent<Pin>().Apple_Spawner = Apple_Spawner;
             inst_pin.GetComponent<Pin>().gameManager = gameManager;
             inst_pin.GetComponent<Pin>().weaponEvolution = weaponEvolution;
+            inst_pin.GetComponent<Pin>().PinSpawner = pinspawner;
+            inst_pin.GetComponent<Pin>().SoundManager = soundManager;
+            inst_pin.GetComponent<Pin>().shoot = shoot;
         }
 
     }

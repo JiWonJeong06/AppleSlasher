@@ -10,9 +10,12 @@ public class Pin : MonoBehaviour
     private GameObject hitEffectPrefab;
     private Movement2D movement2D;
     public GameObject Apple_Spawner;
-    public GameObject gameManager;
+    public GameObject   gameManager;
     public GameObject weaponEvolution;
-    private Rigidbody2D rb;
+    public GameObject PinSpawner;
+
+    public GameObject SoundManager;
+    public AudioClip shoot;
 
     public float damage;
 
@@ -24,10 +27,7 @@ public class Pin : MonoBehaviour
     private void Update()
 
     {
-
         movement2D = GetComponent<Movement2D>();
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,17 +37,21 @@ public class Pin : MonoBehaviour
         {
             // 충돌한 칼의 Pin 스크립트 가져오기
             Pin otherPin = collision.GetComponent<Pin>();
+            
+          
 
             // 만약 상대 칼이 박힌 상태면, 현재 칼이 박힌 상태가 아니어야 튕겨 나가게 하자
             if (otherPin != null && otherPin.isStuck && !this.isStuck)
             {
                 movement2D.MoveTo(new Vector3(-1f, -1f, 0f));
+                PinSpawner.GetComponent<PinSpawner>().enablepin = false;
                 StartCoroutine(DelayedGameOver(0.5f));
             }
         }
         else if (collision.CompareTag("Target"))
         {
             movement2D.MoveTo(Vector3.zero);
+            SoundManager.GetComponent<SoundManager>().Shoot.PlayOneShot(shoot);
 
             // 박힌 상태 true 설정
             isStuck = true;

@@ -8,19 +8,17 @@ public class Gameoverinfotext : MonoBehaviour
     public GameManager gameManager;
     public bool mystage;
     public bool mybeststage;
-    public bool mysetdia;
     public bool mydia;
 
     Text mystagetext;
 
     Text mybeststagetext;
-    Text mysetdiatext;
+
     Text mydiatext;
     void Start()
     {
         mystagetext = GetComponent<Text>();
         mybeststagetext = GetComponent<Text>();
-        mysetdiatext = GetComponent<Text>();
         mydiatext = GetComponent<Text>();
 
     }
@@ -37,11 +35,8 @@ public class Gameoverinfotext : MonoBehaviour
         }
         if (mydia)
         {
-            mydiatext.text = "획득 다이아: +" + Diamond.GetComponent<Diamond>().earnedDiamondsThisRun.ToString("F0");
+            mydiatext.text = "+ " + Diamond.GetComponent<Diamond>().earnedDiamondsThisRun.ToString("F0");
         }
-        if (mysetdia)
-        {
-            mysetdiatext.text = "보유한 다이아: "+ Diamond.GetComponent<Diamond>().Diamonds.ToString("F0");
-        }
+
     }
 }
