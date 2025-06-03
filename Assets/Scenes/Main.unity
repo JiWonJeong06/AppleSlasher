@@ -338,6 +338,7 @@ MonoBehaviour:
   weaponEvolution: {fileID: 128697935}
   pinspawner: {fileID: 65545400}
   soundManager: {fileID: 911098490}
+  shoot: {fileID: 8300000, guid: 632e75273b430bf4bb86a3529f9579ef, type: 3}
   KnifeList:
   - {fileID: 8895993989985317311, guid: 883abd75ff367cc49813f2dad0ea8be8, type: 3}
   - {fileID: 8895993989985317311, guid: dd1074cc6901b9540bbd933ad07ecb78, type: 3}
@@ -2824,8 +2825,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e0900257de3411d468a14283ba572c2c, type: 3}
-  m_Resource: {fileID: 8300000, guid: e0900257de3411d468a14283ba572c2c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 49cbcc301eff095478c5d70d2af40bf9, type: 3}
+  m_Resource: {fileID: 8300000, guid: 49cbcc301eff095478c5d70d2af40bf9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3079,8 +3080,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGM: {fileID: 584148258}
-  Shoot: {fileID: 2140858557}
   Boom: {fileID: 881395306}
+  Shoot: {fileID: 2140858557}
 --- !u!4 &911098492
 Transform:
   m_ObjectHideFlags: 0

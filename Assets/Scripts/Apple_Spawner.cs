@@ -18,7 +18,7 @@ public class Apple_Spawner : MonoBehaviour
     public AppleDestructionEffect ade;
 
     public GameObject SoundManager;
-    public AudioClip boom;
+
 
     private float lastNormalStageHp = 50f; // 일반 스테이지 기본 시작 체력
 
@@ -64,7 +64,7 @@ public class Apple_Spawner : MonoBehaviour
 
             if (Apple_Hp_Bar <= 0)
             {
-                SoundManager.GetComponent<SoundManager>().Boom.PlayOneShot(boom);
+                SoundManager.GetComponent<SoundManager>().Boom.Play();
                 Destroy(apple_inst);
                 ade.PlayDestructionEffect();
                 int stageLevel = gameManager.GetComponent<GameManager>().stagelevel;

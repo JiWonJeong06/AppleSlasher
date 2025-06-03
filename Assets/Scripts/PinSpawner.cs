@@ -31,7 +31,6 @@ public class PinSpawner : MonoBehaviour
             inst_pin.GetComponent<Pin>().weaponEvolution = weaponEvolution;
             inst_pin.GetComponent<Pin>().PinSpawner = pinspawner;
             inst_pin.GetComponent<Pin>().SoundManager = soundManager;
-            inst_pin.GetComponent<Pin>().shoot = shoot;
         }
 
     }

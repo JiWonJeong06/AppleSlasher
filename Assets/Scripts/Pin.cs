@@ -15,7 +15,7 @@ public class Pin : MonoBehaviour
     public GameObject PinSpawner;
 
     public GameObject SoundManager;
-    public AudioClip shoot;
+
 
     public float damage;
 
@@ -51,7 +51,6 @@ public class Pin : MonoBehaviour
         else if (collision.CompareTag("Target"))
         {
             movement2D.MoveTo(Vector3.zero);
-            SoundManager.GetComponent<SoundManager>().Shoot.PlayOneShot(shoot);
 
             // 박힌 상태 true 설정
             isStuck = true;
@@ -64,6 +63,7 @@ public class Pin : MonoBehaviour
 
             collision.GetComponent<Target>().ShakeApple();
             Apple_Spawner.GetComponent<Apple_Spawner>().Damage_Apple(weaponEvolution.GetComponent<WeaponEvolution>().Damage());
+            SoundManager.GetComponent<SoundManager>().Shoot.Play();
         }
     }
     private IEnumerator DelayedGameOver(float delay)
