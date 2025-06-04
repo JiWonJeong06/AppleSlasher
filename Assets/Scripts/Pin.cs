@@ -34,7 +34,8 @@ public class Pin : MonoBehaviour
             Pin otherPin = collision.GetComponent<Pin>();
 
             if (otherPin != null && otherPin.isStuck && !this.isStuck)
-            {
+            {   
+                SoundManager.GetComponent<SoundManager>().Knife.Play();
                 movement2D.MoveTo(new Vector3(-1f, -1f, 0f));
                 PinSpawner.GetComponent<PinSpawner>().enablepin = false;
                 StartCoroutine(DelayedGameOver(0.5f));

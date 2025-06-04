@@ -32,6 +32,8 @@ public class SwordStartEffect : MonoBehaviour
     public Vector3 Topvec2;
     public Vector3 Topvec3;
 
+    public GameObject Soundmanager;
+
     public void StartDrop()
     {
         if (!isDropping)
@@ -77,6 +79,7 @@ public class SwordStartEffect : MonoBehaviour
     private IEnumerator Delayed(float delay)
     {
         yield return new WaitForSeconds(delay);
+        Soundmanager.GetComponent<SoundManager>().BGM.volume = 0.5f;
         gamemanager.GetComponent<GameManager>().Start.SetActive(false);
         gamemanager.GetComponent<GameManager>().InGame.SetActive(true);
     }
