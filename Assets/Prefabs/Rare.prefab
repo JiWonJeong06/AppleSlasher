@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   moveDirection: {x: 0, y: 1, z: 0}
+  rotateSpeed: 2600
 --- !u!50 &3946458354919003887
 Rigidbody2D:
   serializedVersion: 5

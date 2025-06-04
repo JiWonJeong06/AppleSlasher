@@ -17,6 +17,8 @@ public class Pin : MonoBehaviour
     public GameObject PinSpawner;
     public GameObject SoundManager;
 
+    private Rigidbody2D rb;
+
     public float damage;
     public float add_value = 10f;
     public bool isStuck = false;
@@ -25,6 +27,7 @@ public class Pin : MonoBehaviour
     {
         // Start에서 movement2D 캐싱
         movement2D = GetComponent<Movement2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +39,8 @@ public class Pin : MonoBehaviour
             if (otherPin != null && otherPin.isStuck && !this.isStuck)
             {   
                 SoundManager.GetComponent<SoundManager>().Knife.Play();
-                movement2D.MoveTo(new Vector3(-1f, -1f, 0f));
+                movement2D.MoveTo(new Vector3(0f, -1f, 0f));
+                movement2D.StartRotate();       
                 PinSpawner.GetComponent<PinSpawner>().enablepin = false;
                 StartCoroutine(DelayedGameOver(0.5f));
             }
