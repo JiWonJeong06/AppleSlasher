@@ -23,12 +23,6 @@ public class GameManager : MonoBehaviour
     public GameObject HelpUI;
 
 
-    public void Sstart()
-    {                           //온 클릭 함수를 이용하여 게임 로딩 창을 닫고, 인게임을 킴
-        Start.SetActive(false);
-        InGame.SetActive(true);
-    }
-
 
     void Awake()
     {

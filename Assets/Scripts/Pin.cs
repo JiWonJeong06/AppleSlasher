@@ -1,46 +1,38 @@
 using UnityEngine;
 using System.Collections;
 
-//핀핀
+// 핀핀
 public class Pin : MonoBehaviour
 {
     [SerializeField]
     private Transform hitEffectSpawnPoint;
     [SerializeField]
     private GameObject hitEffectPrefab;
+
     private Movement2D movement2D;
+
     public GameObject Apple_Spawner;
-    public GameObject   gameManager;
+    public GameObject gameManager;
     public GameObject weaponEvolution;
     public GameObject PinSpawner;
-
     public GameObject SoundManager;
 
-
     public float damage;
-
     public float add_value = 10f;
-
-
     public bool isStuck = false;
 
-    private void Update()
-
+    private void Start()
     {
+        // Start에서 movement2D 캐싱
         movement2D = GetComponent<Movement2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Pin"))
         {
-            // 충돌한 칼의 Pin 스크립트 가져오기
             Pin otherPin = collision.GetComponent<Pin>();
-            
-          
 
-            // 만약 상대 칼이 박힌 상태면, 현재 칼이 박힌 상태가 아니어야 튕겨 나가게 하자
             if (otherPin != null && otherPin.isStuck && !this.isStuck)
             {
                 movement2D.MoveTo(new Vector3(-1f, -1f, 0f));
@@ -50,11 +42,23 @@ public class Pin : MonoBehaviour
         }
         else if (collision.CompareTag("Target"))
         {
+            // 💡 충돌 지점 계산
+            Vector2 collisionPoint = collision.ClosestPoint(transform.position);
+
+            // 💡 방향 벡터: 사과 중심 → 칼 위치
+            Vector2 direction = ((Vector2)transform.position - (Vector2)collision.transform.position).normalized;
+
+            // 💡 겹침 방지를 위한 미세 위치 보정
+            float offset = 0.4f;
+            Vector2 adjustedPosition = collisionPoint + direction * offset;
+
+            // 💡 위치 이동
+            transform.position = adjustedPosition;
+
+            // 💡 움직임 정지
             movement2D.MoveTo(Vector3.zero);
 
-            // 박힌 상태 true 설정
             isStuck = true;
-
             transform.SetParent(collision.transform);
             collision.GetComponent<Target>().Hit();
             weaponEvolution.GetComponent<WeaponEvolution>().GainExp(10f);
@@ -66,9 +70,10 @@ public class Pin : MonoBehaviour
             SoundManager.GetComponent<SoundManager>().Shoot.Play();
         }
     }
+
     private IEnumerator DelayedGameOver(float delay)
-{
-    yield return new WaitForSeconds(delay);
-    gameManager.GetComponent<GameManager>().GameOver();
-}
+    {
+        yield return new WaitForSeconds(delay);
+        gameManager.GetComponent<GameManager>().GameOver();
+    }
 }
