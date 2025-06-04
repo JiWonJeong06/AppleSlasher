@@ -43,20 +43,11 @@ public class Pin : MonoBehaviour
         }
         else if (collision.CompareTag("Target"))
         {
-            // 💡 충돌 지점 계산
             Vector2 collisionPoint = collision.ClosestPoint(transform.position);
-
-            // 💡 방향 벡터: 사과 중심 → 칼 위치
             Vector2 direction = ((Vector2)transform.position - (Vector2)collision.transform.position).normalized;
-
-            // 💡 겹침 방지를 위한 미세 위치 보정
             float offset = 0.4f;
             Vector2 adjustedPosition = collisionPoint + direction * offset;
-
-            // 💡 위치 이동
             transform.position = adjustedPosition;
-
-            // 💡 움직임 정지
             movement2D.MoveTo(Vector3.zero);
 
             isStuck = true;

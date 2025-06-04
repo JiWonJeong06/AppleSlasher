@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject StoreUI;
     public GameObject SetUI;
     public GameObject HelpUI;
+    public GameObject PauseUI;
 
     public GameObject gamesound;
     void Awake()
@@ -109,6 +110,14 @@ public class GameManager : MonoBehaviour
         StoreUI.SetActive(true);
         Debug.Log("상점 열림!");
     }
+    public void Pause()
+    {
+        Debug.Log("일시 중지");
+        gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        PauseUI.SetActive(true);
+        Time.timeScale = 0f;
+        Pin_Spawner.GetComponent<PinSpawner>().enablepin = false;
+    }
 
     public void Settings()
     {
@@ -122,12 +131,25 @@ public class GameManager : MonoBehaviour
         HelpUI.SetActive(true);
         Debug.Log("도움말 열림!");
     }
+
+    public void Cont()
+    {
+        gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        PauseUI.SetActive(false);
+        Debug.Log("일시중지 닫힘!");
+        Time.timeScale = 1f;
+        Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
+        
+    }
+
     public void ExitUI()
     {
         gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        Time.timeScale = 1f;
         StoreUI.SetActive(false);
         SetUI.SetActive(false);
         HelpUI.SetActive(false);
+        PauseUI.SetActive(false);
     }
   
 }
