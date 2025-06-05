@@ -39,7 +39,7 @@ public class Pin : MonoBehaviour
             if (otherPin != null && otherPin.isStuck && !this.isStuck)
             {   
                 SoundManager.GetComponent<SoundManager>().Knife.Play();
-                movement2D.MoveTo(new Vector3(0f, -1f, 0f));
+                movement2D.MoveTo(new Vector3(0f, -2f, 0f));
                 movement2D.StartRotate();       
                 PinSpawner.GetComponent<PinSpawner>().enablepin = false;
                 StartCoroutine(DelayedGameOver(0.5f));

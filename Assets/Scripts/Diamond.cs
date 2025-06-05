@@ -19,9 +19,16 @@ public class Diamond : MonoBehaviour
 
     void Update()
     {
-      
-        Titletext.text = Diamonds.ToString("D5");
-        InGametext.text = Diamonds.ToString("D5");
+        if (Diamonds >= 99999)
+        {
+            Titletext.text = "99999+";
+            InGametext.text = "   99999+";
+        }
+        else
+        {
+            Titletext.text = Diamonds.ToString("D5")+" ";
+            InGametext.text = "   " + Diamonds.ToString("D5");
+        }
     }
     
     public void AddDiamondsForStageClear(int stageLevel)
@@ -29,18 +36,12 @@ public class Diamond : MonoBehaviour
         if (stageLevel % 5 == 0)
         {
             earnedDiamondsThisRun += 30;
-            Debug.Log($"[다이아] 스테이지 {stageLevel} 클리어 → 30 다이아 적립 (총: {earnedDiamondsThisRun})");
-
         }
     }
     // 게임 오버 시 호출
     public void ShowRunResult()
     {
         Diamonds += earnedDiamondsThisRun;
-        if (Diamonds >= 99999)
-        {
-            Diamonds = 99999;
-        }
         PlayerPrefs.SetInt("Diamonds", Diamonds);
         PlayerPrefs.Save();
         Debug.Log($"[다이아] 총 다이아: {Diamonds}에  {earnedDiamondsThisRun} 만큼 저장 완료");

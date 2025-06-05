@@ -17,13 +17,16 @@ public class GameManager : MonoBehaviour
     public GameObject Gameover;
     public bool isGameOver = false;
 
-    //UI 창
+    //UI 창as
     public GameObject StoreUI;
     public GameObject SetUI;
     public GameObject HelpUI;
     public GameObject PauseUI;
 
     public GameObject gamesound;
+
+
+
     void Awake()
     {
         if (!PlayerPrefs.HasKey("Score"))
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("400개 사용");
             gamesound.GetComponent<SoundManager>().Uitouch.Play();
-            Diamond.GetComponent<Diamond>().Diamonds -= 400;
+            Diamond.GetComponent<Diamond>().Diamonds -= 1000000;
             Gameover.SetActive(false);
             isGameOver = false;
             Time.timeScale = 1f;
