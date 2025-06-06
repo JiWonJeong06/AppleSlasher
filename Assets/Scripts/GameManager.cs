@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject PauseUI;
 
     public GameObject gamesound;
+    public GameObject Timer;
 
 
     void Awake()
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
     
-
+        Timer.GetComponent<Timer>().StopTimer();
         Gameover.SetActive(true);
         highstagelevel = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));

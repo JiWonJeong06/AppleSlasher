@@ -23,9 +23,9 @@ public class Timer : MonoBehaviour
         if (isRunning)
         {
             currentTime += Time.deltaTime;
-            timerText.text = "Time: " + FormatTime(currentTime);
+            timerText.text = FormatTime(currentTime);
         }
-        StopTimer();
+
     }
 
     public void StopTimer()
@@ -37,18 +37,12 @@ public class Timer : MonoBehaviour
             bestTime = currentTime;
             PlayerPrefs.SetFloat("BestTime", bestTime);
             PlayerPrefs.Save();
-            bestTimeText.text = "Best Time: " + FormatTime(bestTime);
-
+            bestTimeText.text = FormatTime(bestTime);
+            currentTimeText.text = FormatTime(currentTime);
         }
-
-    }
-
-    private void ShowGameOverPanel()
-    {
-
-        currentTimeText.text = "Your Time: " + FormatTime(currentTime);
-        bestTimeText.text = "Best Time: " + FormatTime(bestTime);
-
+        else
+            bestTimeText.text = FormatTime(bestTime);
+            currentTimeText.text = FormatTime(currentTime);
 
     }
 
