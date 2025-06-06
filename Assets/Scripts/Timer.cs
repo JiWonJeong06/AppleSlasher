@@ -3,47 +3,59 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public Text timerText;        // 현재 시간 표시용 Text
-    public Text gameovertimerText;
-    public Text bestTimeText;     // 최고 기록 표시용 Text
-    private float currentTime = 0f;
-    private float bestTime = 0f;
+    public Text timerText;               // 게임 중 타이머 표시용
+
+    public Text currentTimeText;         // 게임 오버 창의 현재 기록
+    public Text bestTimeText;            // 게임 오버 창의 최고 기록
+
+    public float currentTime = 0f;
+    public float bestTime = 0f;
+    public bool isRunning = true;
 
     void Start()
     {
-       
         bestTime = PlayerPrefs.GetFloat("BestTime", 0f);
-        UpdateBestTimeUI();
+
     }
 
     void Update()
     {
-        currentTime += Time.deltaTime;
-        UpdateTimerUI();
-                // 최고 기록 갱신
+        if (isRunning)
+        {
+            currentTime += Time.deltaTime;
+            timerText.text = "Time: " + FormatTime(currentTime);
+        }
+        StopTimer();
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
+
         if (currentTime > bestTime)
         {
             bestTime = currentTime;
             PlayerPrefs.SetFloat("BestTime", bestTime);
             PlayerPrefs.Save();
-            UpdateBestTimeUI();
+            bestTimeText.text = "Best Time: " + FormatTime(bestTime);
+
         }
+
     }
 
-    private void UpdateTimerUI()
-
+    private void ShowGameOverPanel()
     {
-        int minutes = Mathf.FloorToInt(currentTime / 60f);
-        int seconds = Mathf.FloorToInt(currentTime % 60f);
-        timerText.text = $"{minutes:00}:{seconds:00}";
-        gameovertimerText.text = $"{minutes:00}:{seconds:00}";
-       
+
+        currentTimeText.text = "Your Time: " + FormatTime(currentTime);
+        bestTimeText.text = "Best Time: " + FormatTime(bestTime);
+
+
     }
 
-    private void UpdateBestTimeUI()
+    private string FormatTime(float time)
     {
-        int minutes = Mathf.FloorToInt(bestTime / 60f);
-        int seconds = Mathf.FloorToInt(bestTime % 60f);
-        bestTimeText.text =  $"{minutes:00}:{seconds:00}";
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+        return $"{minutes:00}:{seconds:00}";
     }
 }

@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     public GameObject gamesound;
 
 
-
     void Awake()
     {
         if (!PlayerPrefs.HasKey("Score"))

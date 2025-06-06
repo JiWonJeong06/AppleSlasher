@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Threading;
 
 public class SwordStartEffect : MonoBehaviour
 {
@@ -34,11 +35,14 @@ public class SwordStartEffect : MonoBehaviour
 
     public GameObject Soundmanager;
 
+    public GameObject Timer;
+
     public void StartDrop()
     {
         if (!isDropping)
         {
             isDropping = true;
+            Timer.GetComponent<Timer>().isRunning = true;
         }
     }
 
