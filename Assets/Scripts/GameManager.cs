@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject DeveloUI;
     public GameObject FontUI;
 
+    public GameObject Ranking;
+
     void Awake()
     {
         if (!PlayerPrefs.HasKey("Score"))
@@ -151,7 +153,7 @@ public class GameManager : MonoBehaviour
         gamesound.GetComponent<SoundManager>().Uitouch.Play();
         RankUI.SetActive(true);
         Debug.Log("랭킹창 열림");
-        
+        Ranking.GetComponent<Rank>().UpdateRankUI();
     }
     
         public void Develo()
