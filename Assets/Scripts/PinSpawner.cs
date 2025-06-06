@@ -17,7 +17,7 @@ public class PinSpawner : MonoBehaviour
 	public Sprite[] KnifeSprite;
 	public string Name;
 
-    public bool enablepin = true;
+    public bool enablepin;
 
     private void Update()
     {
@@ -27,7 +27,6 @@ public class PinSpawner : MonoBehaviour
         {
             Vector2 touchPos = Touchscreen.current.primaryTouch.position.ReadValue();
 
-            // 화면 높이의 하단 1/3만 유효한 영역으로 지정
             float screenHeight = Screen.height;
             if (touchPos.y <= screenHeight / 3f)
             {

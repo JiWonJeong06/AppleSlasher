@@ -83,7 +83,7 @@ public class SwordStartEffect : MonoBehaviour
     private IEnumerator Delayed(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Soundmanager.GetComponent<SoundManager>().BGM.volume = Soundmanager.GetComponent<SoundManager>().Bgmslider.value / 5f;
+        Soundmanager.GetComponent<SoundManager>().BGM.volume = 0f;
         gamemanager.GetComponent<GameManager>().Start.SetActive(false);
         gamemanager.GetComponent<GameManager>().InGame.SetActive(true);
     }
