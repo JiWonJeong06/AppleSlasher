@@ -22,10 +22,11 @@ public class GameManager : MonoBehaviour
     public GameObject SetUI;
     public GameObject HelpUI;
     public GameObject PauseUI;
-
+    public GameObject RankUI;
     public GameObject gamesound;
     public GameObject Timer;
-
+    public GameObject DeveloUI;
+    public GameObject FontUI;
 
     void Awake()
     {
@@ -49,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-    
         Timer.GetComponent<Timer>().StopTimer();
         Gameover.SetActive(true);
         highstagelevel = PlayerPrefs.GetInt("Score");
@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("400개 사용");
             gamesound.GetComponent<SoundManager>().Uitouch.Play();
-            Diamond.GetComponent<Diamond>().Diamonds -= 1000000;
+            Timer.GetComponent<Timer>().isRunning = true;
+            Diamond.GetComponent<Diamond>().Diamonds -= 400;
             Gameover.SetActive(false);
             isGameOver = false;
             Time.timeScale = 1f;
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
     public void StartAD() //광고 보고 다시 시작하기
     {
         gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        Timer.GetComponent<Timer>().isRunning = true;
         Gameover.SetActive(false);
         isGameOver = false;
         Time.timeScale = 1f;
@@ -144,6 +146,28 @@ public class GameManager : MonoBehaviour
         Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
         
     }
+        public void Rank()
+    {
+        gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        RankUI.SetActive(true);
+        Debug.Log("랭킹창 열림");
+        
+    }
+    
+        public void Develo()
+    {
+        gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        DeveloUI.SetActive(true);
+        Debug.Log("만든사람람들 창 열림");
+        
+    }
+            public void Fontinfo()
+    {
+        gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        FontUI.SetActive(true);
+        Debug.Log("게임 정보 열림");
+        
+    }
 
     public void ExitUI()
     {
@@ -153,6 +177,9 @@ public class GameManager : MonoBehaviour
         SetUI.SetActive(false);
         HelpUI.SetActive(false);
         PauseUI.SetActive(false);
+        RankUI.SetActive(false);
+        DeveloUI.SetActive(false);
+        FontUI.SetActive(false);
     }
   
 }
