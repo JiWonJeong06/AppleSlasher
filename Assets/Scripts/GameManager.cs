@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject Ranking;
 
+    public GameObject Checking;
+
+    public bool stackGameover = false;
+    public GameObject stackover;
+
     void Awake()
     {
         if (!PlayerPrefs.HasKey("Score"))
@@ -52,13 +57,24 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Timer.GetComponent<Timer>().StopTimer();
-        Gameover.SetActive(true);
-        highstagelevel = PlayerPrefs.GetInt("Score");
-        PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
-        Diamond.GetComponent<Diamond>().ShowRunResult();
-        Time.timeScale = 0f;
-
+        if (stackGameover)
+        {
+            Timer.GetComponent<Timer>().StopTimer();
+            stackover.SetActive(true);
+            highstagelevel = PlayerPrefs.GetInt("Score");
+            PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
+            Diamond.GetComponent<Diamond>().ShowRunResult();
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Timer.GetComponent<Timer>().StopTimer();
+            Gameover.SetActive(true);
+            highstagelevel = PlayerPrefs.GetInt("Score");
+            PlayerPrefs.SetInt("Score", Mathf.Max(highstagelevel, stagelevel));
+            Diamond.GetComponent<Diamond>().ShowRunResult();
+            Time.timeScale = 0f;
+        }
 
     }
     public void StartDia() // 보석 쓰고 다시 시작하기
@@ -74,6 +90,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
             Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
+            stackGameover = true;
 
         }
         else
@@ -89,6 +106,8 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
         Time.timeScale = 1f;
         Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
+        stackGameover = true;
+
 
 
     }
@@ -169,6 +188,14 @@ public class GameManager : MonoBehaviour
         FontUI.SetActive(true);
         Debug.Log("게임 정보 열림");
         
+    }
+    public void Check()
+    {
+        gamesound.GetComponent<SoundManager>().Uitouch.Play();
+        Checking.SetActive(false);
+        Diamond.GetComponent<Diamond>().Diamonds += 100;
+        Debug.Log("출석 완료 300개 겟또");
+         
     }
 
     public void ExitUI()
