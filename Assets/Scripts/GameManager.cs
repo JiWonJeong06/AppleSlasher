@@ -193,7 +193,9 @@ public class GameManager : MonoBehaviour
     {
         gamesound.GetComponent<SoundManager>().Uitouch.Play();
         Checking.SetActive(false);
-        Diamond.GetComponent<Diamond>().Diamonds += 100;
+        Diamond.GetComponent<Diamond>().Diamonds += 300;
+        PlayerPrefs.SetInt("Diamonds", Diamond.GetComponent<Diamond>().Diamonds);
+        PlayerPrefs.Save();
         Debug.Log("출석 완료 300개 겟또");
          
     }
