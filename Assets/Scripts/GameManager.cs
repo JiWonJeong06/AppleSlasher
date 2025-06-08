@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography;
 //게임 매니저저
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public bool stackGameover = false;
     public GameObject stackover;
+    public Text Notdia;
 
     void Awake()
     {
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("400개 이상 있지 않아 사용 불가");
+            Notdia.text = "보석이 부족합니다.";
         }
     }
     public void StartAD() //광고 보고 다시 시작하기

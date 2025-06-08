@@ -21,7 +21,7 @@ public class AttendanceSystem : MonoBehaviour
         UpdateUI();
         claimButton.onClick.AddListener(OnClickClaim);
     }
-    /*void Update()
+   /* void Update()
 {
     // 키보드에서 R 키를 누르면 날짜 초기화 (에디터에서만 동작)
     if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
