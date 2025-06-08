@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
         Gameover.SetActive(false);
         isGameOver = false;
         Time.timeScale = 1f;
+        Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
         Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
         stackGameover = true;
 

@@ -8,6 +8,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
+
+    public GameObject gamemanger;
  
     void Awake()
     {   
@@ -19,7 +21,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         #endif
 
         // Disable the button until the ad is ready to show:
-        _showAdButton.interactable = false;
+   
     }
  
     // Call this public method when you want to get an ad ready to show.
@@ -48,7 +50,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void ShowAd()
     {
         // Disable the button:
-        _showAdButton.interactable = false;
+        
         // Then show the ad:
         Advertisement.Show(_adUnitId, this);
     }
@@ -59,6 +61,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
+            gamemanger.GetComponent<GameManager>().StartAD();
             // Grant a reward.
         }
     }
