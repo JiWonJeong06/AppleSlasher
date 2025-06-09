@@ -2961,9 +2961,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 438810003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd467eaed2f53c45a12ebbece141087, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b60fcd5d05f7d64e9509ecdd24f9566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 476283038}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
+  gamesound: {fileID: 911098490}
+  Timer: {fileID: 1221235000}
+  gamemanager: {fileID: 1462772709}
+  Pin_Spawner: {fileID: 65545400}
+  Diamond: {fileID: 904506629}
 --- !u!1 &439442134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,7 +3297,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 438810005}
-        m_TargetAssemblyTypeName: RewardedAdsButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: RewardedAdsManager, Assembly-CSharp
         m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
@@ -3485,7 +3493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &509846180
 Transform:
   m_ObjectHideFlags: 0
@@ -4306,9 +4314,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1462772712}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: MainExit
+      - m_Target: {fileID: 657056399}
+        m_TargetAssemblyTypeName: InterstitialAdsManager, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4397,9 +4405,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 657056397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54eb65a306798344482d88e36d29c17c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5faaf143d6312324e9eb921748844f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _androidAdUnitId: Interstitial_Android
+  _iOSAdUnitId: Interstitial_iOS
+  gamesound: {fileID: 911098490}
+  gamemanager: {fileID: 1462772709}
+  Diamond: {fileID: 904506629}
 --- !u!1 &663330420
 GameObject:
   m_ObjectHideFlags: 0
@@ -4698,7 +4711,7 @@ GameObject:
   - component: {fileID: 687527337}
   - component: {fileID: 687527338}
   m_Layer: 5
-  m_Name: ADS
+  m_Name: AdsInitializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4712,9 +4725,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687527336}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.117228, y: -0.8711142, z: 90}
-  m_LocalScale: {x: 0.0024287566, y: 0.0024287566, z: 0.0024287566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 509846180}
@@ -4728,9 +4741,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 687527336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae096f44ef13dfc4c952602d8e23e057, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a480dc80fb89764fa3ff3c88cae5f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _androidGameId: 5871805
+  _iOSGameId: 5871804
+  _testMode: 1
 --- !u!1 &717103631
 GameObject:
   m_ObjectHideFlags: 0
