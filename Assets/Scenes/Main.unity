@@ -8447,7 +8447,10 @@ MonoBehaviour:
   timerText: {fileID: 533970887}
   currentTimeText: {fileID: 1194598310}
   bestTimeText: {fileID: 1696761791}
+  currentTimeText2: {fileID: 1292391065}
+  bestTimeText2: {fileID: 1409223305}
   record: {fileID: 726386164}
+  record2: {fileID: 1486788475}
   currentTime: 0
   bestTime: 0
   isRunning: 0
@@ -8869,7 +8872,7 @@ GameObject:
   - component: {fileID: 1292391066}
   - component: {fileID: 1292391065}
   m_Layer: 5
-  m_Name: CurrentTime
+  m_Name: CurrentTime2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9153,7 +9156,7 @@ GameObject:
   - component: {fileID: 1409223306}
   - component: {fileID: 1409223305}
   m_Layer: 5
-  m_Name: BestTime
+  m_Name: BestTime2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9539,6 +9542,9 @@ MonoBehaviour:
   mystage: 1
   mybeststage: 0
   mydia: 0
+  mystagetext: {fileID: 1437641876}
+  mybeststagetext: {fileID: 1939740130}
+  mydiatext: {fileID: 1460534248}
 --- !u!114 &1437641876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9769,6 +9775,9 @@ MonoBehaviour:
   mystage: 0
   mybeststage: 0
   mydia: 1
+  mystagetext: {fileID: 1437641876}
+  mybeststagetext: {fileID: 1939740130}
+  mydiatext: {fileID: 1460534248}
 --- !u!114 &1460534248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10102,7 +10111,7 @@ GameObject:
   - component: {fileID: 1486788476}
   - component: {fileID: 1486788475}
   m_Layer: 5
-  m_Name: New  Record!!
+  m_Name: New  Record!!2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11072,6 +11081,9 @@ MonoBehaviour:
   mystage: 0
   mybeststage: 0
   mydia: 1
+  mystagetext: {fileID: 1657102386}
+  mybeststagetext: {fileID: 1844521347}
+  mydiatext: {fileID: 1621440244}
 --- !u!1 &1637734371
 GameObject:
   m_ObjectHideFlags: 0
@@ -11343,6 +11355,9 @@ MonoBehaviour:
   mystage: 1
   mybeststage: 0
   mydia: 0
+  mystagetext: {fileID: 1657102386}
+  mybeststagetext: {fileID: 1844521347}
+  mydiatext: {fileID: 1621440244}
 --- !u!1 &1658750471
 GameObject:
   m_ObjectHideFlags: 0
@@ -12597,6 +12612,9 @@ MonoBehaviour:
   mystage: 0
   mybeststage: 1
   mydia: 0
+  mystagetext: {fileID: 1657102386}
+  mybeststagetext: {fileID: 1844521347}
+  mydiatext: {fileID: 1621440244}
 --- !u!114 &1844521347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13063,6 +13081,9 @@ MonoBehaviour:
   mystage: 0
   mybeststage: 1
   mydia: 0
+  mystagetext: {fileID: 1437641876}
+  mybeststagetext: {fileID: 1939740130}
+  mydiatext: {fileID: 1460534248}
 --- !u!114 &1939740130
 MonoBehaviour:
   m_ObjectHideFlags: 0

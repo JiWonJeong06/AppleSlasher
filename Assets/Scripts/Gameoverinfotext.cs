@@ -10,18 +10,12 @@ public class Gameoverinfotext : MonoBehaviour
     public bool mybeststage;
     public bool mydia;
 
-    Text mystagetext;
+    public Text mystagetext;
 
-    Text mybeststagetext;
+    public Text mybeststagetext;
 
-    Text mydiatext;
-    void Start()
-    {
-        mystagetext = GetComponent<Text>();
-        mybeststagetext = GetComponent<Text>();
-        mydiatext = GetComponent<Text>();
-
-    }
+    public Text mydiatext;
+ 
 
     void Update()
     {
