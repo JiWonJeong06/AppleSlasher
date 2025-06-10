@@ -5,7 +5,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 {
     [SerializeField] string _androidGameId;
     [SerializeField] string _iOSGameId;
-    [SerializeField] bool _testMode = true;
+    [SerializeField] bool _testMode = false;
     private string _gameId;
 
     void Awake()
@@ -20,7 +20,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
         #elif UNITY_ANDROID
             _gameId = _androidGameId;
         #elif UNITY_EDITOR
-            _gameId = _androidGameId; // 에디터 테스트용
+
         #endif
 
         if (!Advertisement.isInitialized && Advertisement.isSupported)

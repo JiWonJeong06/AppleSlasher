@@ -4,18 +4,12 @@ using UnityEngine.Advertisements;
 
 public class RewardedAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] Button _showAdButton;
+
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
+    string _adUnitId = null;
 
-    [Header("Game Components")]
-    public GameObject gamesound;
-    public GameObject Timer;
-    public GameObject gamemanager;
-    public GameObject Pin_Spawner;
-    public GameObject Diamond;
 
-    string _adUnitId;
 
     void Awake()
     {
@@ -37,6 +31,7 @@ public class RewardedAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
     public void ShowAd()
     {
         Advertisement.Show(_adUnitId, this);
+        LoadAd();
         Debug.Log("Showing Rewarded Ad: " + _adUnitId);
     }
 
@@ -44,7 +39,7 @@ public class RewardedAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
     {
         if (adUnitId.Equals(_adUnitId))
         {
-            _showAdButton.onClick.AddListener(ShowAd);
+
             Debug.Log("Rewarded Ad Loaded");
         }
     }
@@ -54,16 +49,8 @@ public class RewardedAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
         if (adUnitId.Equals(_adUnitId) && showCompletionState == UnityAdsShowCompletionState.COMPLETED)
         {
             Debug.Log("Reward Completed");
+            LoadAd();
 
-            // 리워드 처리
-            gamesound.GetComponent<SoundManager>().Uitouch.Play();
-            Timer.GetComponent<Timer>().isRunning = true;
-            gamemanager.GetComponent<GameManager>().Gameover.SetActive(false);
-            gamemanager.GetComponent<GameManager>().isGameOver = false;
-            Time.timeScale = 1f;
-            Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
-            Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
-            gamemanager.GetComponent<GameManager>().stackGameover = true;
         }
     }
 
@@ -82,6 +69,6 @@ public class RewardedAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAd
 
     void OnDestroy()
     {
-        _showAdButton.onClick.RemoveAllListeners();
+
     }
 }

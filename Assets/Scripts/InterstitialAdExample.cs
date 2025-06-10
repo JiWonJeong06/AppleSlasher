@@ -7,10 +7,7 @@ public class InterstitialAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUni
     [SerializeField] string _androidAdUnitId = "Interstitial_Android";
     [SerializeField] string _iOSAdUnitId = "Interstitial_iOS";
     private string _adUnitId;
-    [Header("Game Components")]
-    public GameObject gamesound;
-    public GameObject gamemanager;
-    public GameObject Diamond;
+
     void Awake()
     {
         _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
@@ -27,6 +24,7 @@ public class InterstitialAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUni
     public void ShowAd()
     {
         Advertisement.Show(_adUnitId, this);
+        LoadAd();
         Debug.Log("Showing Interstitial Ad: " + _adUnitId);
     }
 
@@ -50,11 +48,6 @@ public class InterstitialAdsManager : MonoBehaviour, IUnityAdsLoadListener, IUni
 
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
-        Debug.Log($"Interstitial Ad Completed: {adUnitId} - {showCompletionState}");
-        gamesound.GetComponent<SoundManager>().Uitouch.Play();
-        Time.timeScale = 1f;
-        gamemanager.GetComponent<GameManager>().isGameOver = false;
-        Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
-        SceneManager.LoadScene(0);
+
     }
 }

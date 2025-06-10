@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 //게임 매니저저
 public class GameManager : MonoBehaviour
 {
@@ -32,10 +33,12 @@ public class GameManager : MonoBehaviour
     public GameObject Ranking;
 
     public GameObject Checking;
+    public GameObject showads;
 
     public bool stackGameover = false;
     public GameObject stackover;
     public Text Notdia;
+
 
     void Awake()
     {
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
         if (stackGameover)
         {
+            
             Timer.GetComponent<Timer>().StopTimer();
             stackover.SetActive(true);
             highstagelevel = PlayerPrefs.GetInt("Score");
@@ -80,7 +84,9 @@ public class GameManager : MonoBehaviour
 
     }
     public void StartDia() // 보석 쓰고 다시 시작하기
+
     {
+        
         if (Diamond.GetComponent<Diamond>().Diamonds >= 400)
         {
             Debug.Log("400개 사용");
@@ -101,29 +107,30 @@ public class GameManager : MonoBehaviour
             Notdia.text = "보석이 부족합니다.";
         }
     }
-    public void StartAD() //광고 보고 다시 시작하기
-    {
+public void StartAD() // 광고 보고 다시 시작하기
+{
+
         gamesound.GetComponent<SoundManager>().Uitouch.Play();
-        Timer.GetComponent<Timer>().isRunning = true;
-        Gameover.SetActive(false);
-        isGameOver = false;
-        Time.timeScale = 1f;
-        Pin_Spawner.GetComponent<PinSpawner>().enablepin = true;
-        Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
-        stackGameover = true;
+        gamesound.GetComponent<SoundManager>().BGM.mute = true;
+        Showads();
+}
+
+public void MainExit()
+{
+
+    
+            // 광고 종료 후 실행될 내용
+            gamesound.GetComponent<SoundManager>().Uitouch.Play();
+            Time.timeScale = 1f;
+            isGameOver = false;
+            Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
+            SceneManager.LoadScene(0);
+        
+}
 
 
-
-    }
-    public void MainExit()
-
-    {
-        gamesound.GetComponent<SoundManager>().Uitouch.Play();
-        Time.timeScale = 1f;
-        isGameOver = false;
-        Diamond.GetComponent<Diamond>().earnedDiamondsThisRun = 0;
-        SceneManager.LoadScene(0);
-
+    public void Showads() {
+        showads.SetActive(true);
     }
 
     public void GameExit()
