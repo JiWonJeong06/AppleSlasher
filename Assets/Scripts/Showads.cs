@@ -7,7 +7,6 @@ public class Showads : MonoBehaviour
 {
     public string[] adFileNames = { "ad1.mp4", "ad2.mp4", "ad3.mp4" }; // 영상 파일 이름들
     public VideoPlayer videoPlayer;
-
     public GameObject gamesound;
     public GameObject Diamond;
     public GameObject gamemanaer;
@@ -16,13 +15,10 @@ public class Showads : MonoBehaviour
 
     void Awake()
     {
+        PlayRandomAd();
         videoPlayer.loopPointReached += OnVideoFinished;
     }
 
-    void OnEnable()
-    {
-        PlayRandomAd(); // 오브젝트가 켜지면 랜덤 영상 실행
-    }
 
     void PlayRandomAd()
     {
@@ -36,17 +32,10 @@ public class Showads : MonoBehaviour
         int randomIndex = Random.Range(0, adFileNames.Length);
         string fileName = adFileNames[randomIndex];
 
-#if UNITY_ANDROID
-        string videoPath = Path.Combine(Application.streamingAssetsPath, "Ads/" + fileName);
-        videoPlayer.source = VideoSource.Url;
-        videoPlayer.url = videoPath;
-#else
-        // 에디터에서는 VideoClip 사용
-        Debug.LogWarning("에디터에선 url 대신 VideoClip 사용을 권장");
-#endif
 
-        videoPlayer.Prepare();
-        videoPlayer.prepareCompleted += (vp) => { vp.Play(); };
+        videoPlayer.url = Application.streamingAssetsPath + "/Ads/" + fileName;
+
+       videoPlayer.Play();;
     }
 
     void OnVideoFinished(VideoPlayer vp)
