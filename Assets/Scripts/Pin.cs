@@ -57,7 +57,7 @@ public class Pin : MonoBehaviour
             isStuck = true;
             transform.SetParent(collision.transform);
             collision.GetComponent<Target>().Hit();
-            weaponEvolution.GetComponent<WeaponEvolution>().GainExp(100f);
+            weaponEvolution.GetComponent<WeaponEvolution>().GainExp(500f);
 
             Instantiate(hitEffectPrefab, hitEffectSpawnPoint.position, hitEffectSpawnPoint.rotation);
 
